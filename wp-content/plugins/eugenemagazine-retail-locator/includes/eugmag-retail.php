@@ -117,7 +117,7 @@ function gmaps_get_latlng( $address ) {
 	// http://stackoverflow.com/a/8633623/470480
 	$address = urlencode( $address ); // Spaces as + signs
 	
-	$apiKey = 'AIzaSyDV43uZacJPgWA12ncyfSo5p0e4HymFNF8';
+	$apiKey = rs_get_google_maps_api_key();
 	$result = wp_remote_get( "https://maps.google.com/maps/api/geocode/json?address=".$address."&key=".$apiKey );
 
 	if ( !$result ) {
