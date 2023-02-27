@@ -911,7 +911,7 @@ figure.wp-caption figcaption {
 .home-header-post-wrapper {
 	float: right;
 	width: 890px;
-	margin-right: 20px;
+	margin: 0 15px;
 }
 
 .home-header-post-wrapper .category-header {
@@ -931,7 +931,7 @@ figure.wp-caption figcaption {
 	.home-header-post-wrapper {
 		width: auto;
 		float: none;
-		margin: 0 15px;
+		margin: 0;
 		height: 100%;
 	}
 
