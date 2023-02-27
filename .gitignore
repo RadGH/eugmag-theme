@@ -18,5 +18,3 @@
 # Allow specific files and folders
 !/readme.md
 !/.gitignore
-!/wp-content/plugins/piwtrack/
-!/wp-content/themes/piwtrack/
