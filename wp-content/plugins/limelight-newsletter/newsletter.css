@@ -1,0 +1,13 @@
+/* Newsletter Widget */
+.newsletter-form .newsletter-field {
+  margin-bottom: 1em;
+}
+.newsletter-form .newsletter-field input {
+  width: 100%;
+  max-width: 300px;
+  box-sizing: border-box;
+}
+.newsletter-form .newsletter-field label {
+  position: absolute;
+  top: -9000px;
+}

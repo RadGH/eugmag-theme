@@ -1,0 +1,135 @@
+[
+  {
+    "key": "group_5609950957ace",
+    "title": "Staff Directory",
+    "fields": [
+      {
+        "key": "field_5772ce626e8ba",
+        "label": "Title",
+        "name": "staff_title",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": "",
+        "readonly": 0,
+        "disabled": 0
+      },
+      {
+        "key": "field_5772ce6c6e8bb",
+        "label": "Phone",
+        "name": "staff_phone",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": "",
+        "readonly": 0,
+        "disabled": 0
+      },
+      {
+        "key": "field_5772ce9f6e8bc",
+        "label": "Email",
+        "name": "staff_email",
+        "type": "email",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_560996bf9f09f",
+        "label": "Custom Thumbnail",
+        "name": "staff_thumbnail",
+        "type": "image",
+        "instructions": "A square image to display in a grid. Preferably 300x300 or larger. If empty, the featured image will be used.",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "return_format": "id",
+        "preview_size": "staff-thumbnail",
+        "library": "all",
+        "min_width": "",
+        "min_height": "",
+        "min_size": "",
+        "max_width": "",
+        "max_height": "",
+        "max_size": "",
+        "mime_types": ""
+      },
+      {
+        "key": "field_560995268cbab",
+        "label": "Photo Gallery",
+        "name": "staff_photos",
+        "type": "gallery",
+        "instructions": "Thumbnails can be clicked on to show the full version. Use large photos, up to 1200 wide for best results.",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "min": "",
+        "max": "",
+        "preview_size": "staff-thumbnail",
+        "library": "all",
+        "min_width": "",
+        "min_height": "",
+        "min_size": "",
+        "max_width": "",
+        "max_height": "",
+        "max_size": "",
+        "mime_types": "",
+        "insert": "append"
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "post_type",
+          "operator": "==",
+          "value": "staff"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "left",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": ""
+  }
+]

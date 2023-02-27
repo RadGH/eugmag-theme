@@ -1,0 +1,75 @@
+.acf-field-5734dbbb6a3ed .acf-input p {
+	margin: 0;
+}
+
+.ldad-slot-indicator {
+	position: relative;
+}
+
+.ldad-slot-indicator > span {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	display: block;
+}
+
+.ldad-slot-indicator:hover > span:before {
+	content: attr(data-title);
+
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 3;
+
+	display: block;
+	padding: 6px;
+	margin-top: 8px;
+
+	font-size: 11px;
+	color: #fff;
+	font-family: Arial, sans-serif;
+	text-transform: uppercase;
+	white-space: nowrap;
+
+	background: #000;
+}
+.ldad-slot-indicator:hover > span:after {
+	content: '';
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 2;
+
+	display: block;
+
+	border: 10px solid transparent;
+	border-top-width: 0;
+	border-bottom-color: #000;
+}
+
+.ldad-slot-indicator.slot-available:before {
+	content: '';
+	width: 14px;
+	height: 14px;
+	box-shadow: 0 0 1px 1px #000;
+	border-radius: 100%;
+	display: inline-block;
+	position: relative;
+	top: -3px;
+}
+
+/* Style the ad links / order meta in the order screen */
+.woocommerce_order_items_wrapper table.woocommerce_order_items tbody#order_line_items tr.vv-ad-posts td {
+	padding-bottom: 10px;
+}
+
+tr.vv-ad-posts td span.label {
+	display: inline-block;
+	min-width: 60px;
+	font-size: 10px;
+	text-transform: uppercase;
+}

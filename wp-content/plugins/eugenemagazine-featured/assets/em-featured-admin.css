@@ -1,0 +1,20 @@
+.fixed .column-featured {
+	width: 60px;
+	white-space: nowrap;
+}
+
+.column-featured a.em_make_featured {
+	position: relative;
+	display: inline-block;
+	outline: none !important;
+	box-shadow: none !important;
+}
+
+.column-featured a.em_make_featured.loading {
+	animation: featuredspin 1s linear infinite;
+}
+
+@keyframes featuredspin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
