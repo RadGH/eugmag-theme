@@ -740,6 +740,35 @@ figure.wp-caption figcaption {
 	margin-top: 12px
 }
 
+.cover-panel {
+	margin-top: 150px;
+}
+
+@media (max-width: 1023px) {
+	.cover-panel {
+		margin-top: 100px;
+		width: 350px;
+	}
+}
+
+@media (max-width: 639px) {
+	.cover-panel {
+		width: 300px;
+		margin-top: 40px;
+	}
+}
+
+@media ( min-width: 1200px ) {
+	.cover-inside {
+		max-width: 1200px;
+	}
+
+	.cover-panel {
+		margin-top: 40px;
+		clear: both;
+	}
+}
+
 /* posts */
 .post {
 	background-repeat: no-repeat;

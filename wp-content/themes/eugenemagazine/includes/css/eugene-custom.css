@@ -6,22 +6,6 @@ Version 1.2
 	float: right;
 }
 
-.cover-panel {
-	margin-top: 150px;
-}
-@media (max-width: 1023px) {
-	.cover-panel {
-		margin-top: 100px;
-		width: 350px;
-	}
-}
-@media (max-width: 639px) {
-	.cover-panel {
-		width: 300px;
-		margin-top: 40px;
-	}
-}
-
 /* Mobile menu space for top ads */
 @media ( min-width: 961px ) {
 	#mobile-menu-wrap {
