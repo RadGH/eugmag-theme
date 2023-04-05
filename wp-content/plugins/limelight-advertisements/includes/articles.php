@@ -48,6 +48,8 @@ function ldad_article_check_shortcodes( $content ) {
 
 	// Scan each placement to see if it is valid. If it is, remember that using ldad_article_placement
 	foreach( $auto as $placement => $d ) {
+		if ( !$d ) continue;
+		
 		$ad_location = $d[0]['location'];
 		if ( !$ad_location ) continue;
 
