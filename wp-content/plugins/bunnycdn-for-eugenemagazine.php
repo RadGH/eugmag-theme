@@ -14,7 +14,8 @@ function bcdn_em_hook_end( $content ) {
 	if ( ! is_plugin_active( 'bunnycdn/bunnycdn.php' ) ) return $content;
 	
 	$src = '//eugenemagazine.com/wp-content/';
-	$cdn = '//eugenemagazine.b-cdn.net/wp-content/';
+	// $cdn = '//eugenemagazine.b-cdn.net/wp-content/';
+	$cdn = '//i.eugenemagazine.com/wp-content/';
 	
 	// REMOVE cdn if ?nocdn
 	if ( isset($_GET['nocdn']) ) {
