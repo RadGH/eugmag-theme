@@ -58,7 +58,7 @@
 	flex: 0 1 300px;
 	margin: 0 30px 80px;
 	position: relative;
-	font-family: BlissLight, Arial, Helvetica, sans-serif;
+	font-family: gill-sans-nova, Helvetica, Arial, sans-serif; /* formerly b.l. */
 }
 
 .staff-archive-list .staff-item a {

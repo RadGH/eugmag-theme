@@ -1,5 +1,5 @@
 h2.digital-issues-title {
-	font-family: BlissLight,Helvetica,Arial,sans-serif;
+	font-family: gill-sans-nova, Helvetica, Arial, sans-serif; /* formerly b.l. */
 	font-weight: 300;
 	text-transform: uppercase;
 	font-size: 36px;
@@ -37,7 +37,7 @@ h2.digital-issues-title {
 
 	text-transform: uppercase;
 
-	font-family: BlissLight,Helvetica,Arial,sans-serif;
+	font-family: gill-sans-nova, Helvetica, Arial, sans-serif; /* formerly b.l. */
 	font-weight: 700;
 }
 

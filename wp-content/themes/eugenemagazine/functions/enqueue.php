@@ -87,8 +87,11 @@ function ld_enqueue_theme_scripts() {
 	//ld_enqueue_style(  '/includes/libraries/slick/slick-theme.css', array(), '1.0.0' );
 	//ld_enqueue_script( '/includes/libraries/slick/slick.min.js', array(), '1.0.0' );
 
+	// Bliss Light sent legal action threats, so has been replaced with gill sans nova
+	// All references to bliss light in css was commented ending in: /* formerly b.l. */
+	// ld_enqueue_style( '/includes/fonts/BlissLight.css', '1.0.0' );
+
 	// Font files
-	ld_enqueue_style( '/includes/fonts/BlissLight.css', '1.0.0' );
 	ld_enqueue_style( '/includes/fonts/BookmanOldStyleStd.css', '1.0.0' );
 	ld_enqueue_style( '/includes/fonts/Cataneo.css', '1.0.0' );
 	//ld_enqueue_style( '/includes/fonts/GillSansMTProMedium.css', '1.0.0' );

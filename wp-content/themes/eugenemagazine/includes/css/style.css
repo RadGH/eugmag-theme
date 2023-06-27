@@ -7,12 +7,12 @@ Front Page Panel Title:
     font-style: normal;
 
 Front Page Panel Text:
-    font-family: "gill-sans-nova", Helvetica, Arial, sans-serif;
+    font-family: gill-sans-nova, Helvetica, Arial, sans-serif;
     font-weight: 400;
     font-style: normal;
 
 Page Title:
-    font-family: BlissLight, Helvetica, Arial, sans-serif;
+    font-family: gill-sans-nova, Helvetica, Arial, sans-serif;
     font-weight: 300;
     font-style: normal;
 
@@ -528,7 +528,7 @@ Blog & Page Layout Features
 /* General layout styles */
 h2 {
 	text-transform: uppercase;
-	font-family: BlissLight, Helvetica, Arial, sans-serif;
+	font-family: gill-sans-nova, Helvetica, Arial, sans-serif; /* formerly b.l. */
 	font-weight: 300;
 }
 
@@ -543,7 +543,7 @@ h2 {
 .loop-header h1 {
 	margin: 1em 0 .5em;
 	text-transform: uppercase;
-	font-family: BlissLight, Helvetica, Arial, sans-serif;
+	font-family: gill-sans-nova, Helvetica, Arial, sans-serif; /* formerly b.l. */
 	font-weight: 300;
 	font-style: normal;
 }
@@ -858,7 +858,7 @@ figure.wp-caption figcaption {
 }
 
 .header-post .category-header {
-	font-family: BlissLight, Helvetica, Arial, sans-serif;
+	font-family: gill-sans-nova, Helvetica, Arial, sans-serif; /* formerly b.l. */
 	font-weight: 300;
 	text-transform: uppercase;
 	letter-spacing: 2px;
@@ -921,7 +921,7 @@ figure.wp-caption figcaption {
 }
 
 .home-cover-row h2 {
-	font-family: BlissLight, Helvetica, Arial, sans-serif;
+	font-family: gill-sans-nova, Helvetica, Arial, sans-serif; /* formerly b.l. */
 	font-weight: 300;
 	text-transform: uppercase;
 	font-size: 36px;
@@ -1181,7 +1181,7 @@ Mobile Navigation Structure
 	font-weight: 700;
 	text-transform: uppercase;
 	white-space: nowrap;
-	font-family: BlissLight, Helvetica, Arial, sans-serif;
+	font-family: gill-sans-nova, Helvetica, Arial, sans-serif; /* formerly b.l. */
 	letter-spacing: .05em;
 	color: #fff;
 }
@@ -1255,7 +1255,7 @@ body.mobile_nav_open #mobile-button .bar {
 
 /* shared menu button styles */
 .menu-button a {
-	font-family: BlissLight, Helvetica, Arial, sans-serif;
+	font-family: gill-sans-nova, Helvetica, Arial, sans-serif; /* formerly b.l. */
 }
 
 .menu-button .menu-button-text {
@@ -1595,7 +1595,7 @@ ul.nav-login {
 .nav-departments a {
 	font-size: 24px;
 	line-height: 1.2;
-	font-family: BlissLight, Helvetica, Arial, sans-serif;
+	font-family: gill-sans-nova, Helvetica, Arial, sans-serif; /* formerly b.l. */
 	font-weight: 300;
 	letter-spacing: 2px;
 }
@@ -1694,7 +1694,7 @@ section.related.products {
 #woocommerce-category-filter li a {
 	margin: 0 0 4px;
 	text-transform: uppercase;
-	font-family: BlissLight, Helvetica, Arial, sans-serif;
+	font-family: gill-sans-nova, Helvetica, Arial, sans-serif; /* formerly b.l. */
 	display: inline-block;
 	color: #000;
 	background: rgba(255, 255, 255, 0);
