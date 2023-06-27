@@ -134,3 +134,38 @@ function theme_register_shortcodes() {
 }
 
 add_action( 'init', 'theme_register_shortcodes' );
+
+// Used to find post edited by Jake
+// http://eugenemagazine.com/?rad_2023119_41156
+function rad_2023119_41156() {
+	$statuses = array(
+		'publish',
+		'pending',
+		'private',
+		'inherit',
+	);
+	
+	$post_types = get_post_types();
+	
+	$args = array(
+		'post_type' => array_values( $post_types ),
+		'author' => 245,
+		'post_status' => $statuses,
+		'nopaging' => true,
+		'fields' => 'ids',
+	);
+	
+	$q = new WP_Query($args);
+	
+	echo '<table><thead><tr><th>ID</th><th>Title</th><th>Date</th><th>Post Type</th></tr></thead><tbody>';
+	
+	foreach( $q->posts as $post_id ) {
+		$id_link = '<a href="'. get_edit_post_link($post_id) .'">'. $post_id .'</a>';
+		echo '<tr><td>'. $id_link .'</td><td>'. get_the_title($post_id) .'</td><td>'. get_the_time('Y-m-d', $post_id) .'</td><td>'. get_post_type($post_id) .'</td></tr>';
+	}
+	
+	echo '</tbody></table>';
+	
+	exit;
+}
+if ( isset($_GET['rad_2023119_41156']) ) add_action( 'init', 'rad_2023119_41156' );
