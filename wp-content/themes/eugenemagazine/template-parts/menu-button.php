@@ -12,10 +12,12 @@
 		</button>
 	</div>
 	
+	<?php /*
 	<div class="menu-button menu-button-sharing">
 		<?php ld_social_menu(); ?>
 		<div class="toggle">sharing button</div>
 	</div>
+    */ ?>
 	
 	<div class="menu-button menu-button-search">
 		<?php get_search_form(); ?>

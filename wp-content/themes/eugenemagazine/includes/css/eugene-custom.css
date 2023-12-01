@@ -5,10 +5,3 @@ Version 1.2
 .overlay .readmore {
 	float: right;
 }
-
-/* Mobile menu space for top ads */
-@media ( min-width: 961px ) {
-	#mobile-menu-wrap {
-		top: 110px;
-	}
-}

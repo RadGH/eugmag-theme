@@ -1174,6 +1174,10 @@ Mobile Navigation Structure
 
 #mobile-button .mobile-text {
 	display: block;
+	margin-bottom: 5px;
+}
+
+#mobile-button .mobile-text {
 	height: 11px;
 	line-height: 11px;
 	margin-bottom: 3px;
@@ -1264,6 +1268,7 @@ body.mobile_nav_open #mobile-button .bar {
 	font-weight: bold;
 	text-align: center;
 	letter-spacing: .05em;
+	line-height: 1.35;
 	color: #fff;
 }
 
@@ -1561,7 +1566,8 @@ body.mobile_nav_open #mobile-menu-container {
 	margin: 0 0 20px;
 }
 
-#mobile-menu-container .nav-pages {
+#mobile-menu-container .nav-pages,
+#mobile-menu-container .nav-social {
 	margin: 30px 0 0;
 }
 

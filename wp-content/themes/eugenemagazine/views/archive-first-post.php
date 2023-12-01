@@ -16,13 +16,13 @@ if ( get_query_var( 'paged' ) > 1 && $img = get_field( 'dept_header_img', 'categ
 	$classes[]         = ( get_field( 'photo_darkness', 'category_' . $cat_id ) == 'dark' ) ? 'dark-photo' : 'light-photo';
 	
 	$img_id = $img['ID'];
-	$img    = $img['sizes']['medium'];
+	$img    = $img['sizes']['large'];
 } else {
 	$using_dept_header = false;
 	$classes[]         = ( get_field( 'photo_darkness' ) == 'dark' ) ? 'dark-photo' : 'light-photo';
 	
 	$img_id = get_post_thumbnail_id();
-	$img    = wp_get_attachment_image_src( $img_id, 'medium' );
+	$img    = wp_get_attachment_image_src( $img_id, 'large' );
 	$img    = $img[0];
 }
 

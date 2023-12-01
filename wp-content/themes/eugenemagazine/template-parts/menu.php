@@ -22,6 +22,8 @@
 					echo '<ul class="nav-login"><li><a href="/wp-admin/">Log in</a></li></ul>';
 					echo '</nav>';
 				}
+				
+				ld_social_menu();
 				?>
 			</div>
 		</div>

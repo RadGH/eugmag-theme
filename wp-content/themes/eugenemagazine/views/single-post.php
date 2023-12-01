@@ -15,7 +15,7 @@ if ( has_post_thumbnail() && $m = ld_get_attachment_mobile( get_post_thumbnail_i
 	$classes[] = 'no-mobile-alt';
 }
 
-$img = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium' );
+$img = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large' );
 ?>
 
 <header style="background-image: url(<?php echo esc_attr( $img[0] ); ?>);" class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
