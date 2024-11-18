@@ -1335,7 +1335,7 @@ body.mobile_nav_open #mobile-button .bar {
 	content: '';
 	position: absolute;
 	top: 0;
-	right: 0;
+	right: 1px;
 	display: block;
 	width: 0;
 	height: 0;

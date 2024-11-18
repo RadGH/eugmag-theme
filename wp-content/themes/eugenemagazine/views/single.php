@@ -2,7 +2,7 @@
 	<article <?php post_class( 'loop-single' ); ?>>
 
 		<div class="loop-header">
-			<?php the_title( '<h1 class="loop-title">', '</h1>' ); ?>
+			<?php the_title( '<h1>', '</h1>' ); ?>
 		</div>
 
 		<div class="loop-body">

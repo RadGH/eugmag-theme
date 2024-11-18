@@ -134,7 +134,7 @@ add_action('woocommerce_after_main_content', 'ld_woocommerce_after', 10);
 function ld_woocommerce_custom_title() {
 	?>
 	<div class="loop-header">
-		<h1 class="loop-title"><?php woocommerce_page_title(); ?></h1>
+		<h1><?php woocommerce_page_title(); ?></h1>
 
 		<?php
 		// Singular pages may have a subtitle

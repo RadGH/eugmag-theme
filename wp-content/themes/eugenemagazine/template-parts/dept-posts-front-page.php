@@ -26,6 +26,13 @@ foreach ( $menu as $deptID ) {
 	if ( ! in_array( $deptID, $depts ) ) {
 		continue;
 	}
+	
+	// Display Weekender Posts as the first item
+	if ( $first ) {
+		$first = false;
+		output_posts_from_query( $weekenderPosts, get_post_type_archive_link( 'weekender' ), 'The Weekender' );
+	}
+	
 	$deptPosts = get_posts( array(
 		'no_found_rows' => true,
 		'showposts'     => 3,
@@ -34,11 +41,6 @@ foreach ( $menu as $deptID ) {
 	) );
 	output_posts_from_query( $deptPosts, get_category_link( $deptID ), get_cat_name( $deptID ) );
 	
-	// Display Weekender Posts as the second item
-	if ( $first ) {
-		$first = false;
-		output_posts_from_query( $weekenderPosts, get_post_type_archive_link( 'weekender' ), 'The Weekender' );
-	}
 }
 
 

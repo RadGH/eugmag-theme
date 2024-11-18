@@ -11,7 +11,7 @@ else if ( is_year() )     $message = "No posts have been published this year.";
 <article <?php post_class('loop-single loop-404'); ?>>
 
 	<div class="loop-header">
-		<h1 class="loop-title">No posts found</h1>
+		<h1>No posts found</h1>
 	</div>
 
 	<div class="loop-body">

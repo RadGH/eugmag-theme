@@ -120,3 +120,26 @@ function register_weekender_post_type() {
 }
 
 add_action( 'init', 'register_weekender_post_type', 0 );
+
+// When saving a post with the post_name starting with "the-weekender-", remove the prefix "the-weekender-"
+function weekender_remove_prefix_slug( $post_id ) {
+	$post = get_post( $post_id );
+	if ( $post->post_type != 'weekender' ) return;
+	
+	$prefix = 'the-weekender-';
+	
+	$post_name = $post->post_name;
+	if ( ! str_starts_with( $post_name, $prefix ) ) return;
+	
+	$post_name = str_replace( $prefix, '', $post_name );
+	
+	remove_action( 'save_post', 'weekender_remove_prefix_slug' );
+	
+	wp_update_post( array(
+		'ID'        => $post_id,
+		'post_name' => $post_name,
+	) );
+	
+	add_action( 'save_post', 'weekender_remove_prefix_slug' );
+}
+add_action( 'save_post', 'weekender_remove_prefix_slug' );

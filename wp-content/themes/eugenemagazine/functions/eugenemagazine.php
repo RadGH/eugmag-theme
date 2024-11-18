@@ -187,10 +187,25 @@ function em_get_cover_header() {
 		}
 	}
 	
+	// woocommerce cart and checkout using a product's cover
+	// On cart and checkout, use the first product from cart with the "cover-image" field
+	if ( function_exists( "is_cart" ) && (is_cart() || is_checkout()) ) {
+		if ( WC()->cart->get_cart_contents() ) foreach( WC()->cart->get_cart_contents() as $cart_item ) {
+			$cover['image'] = get_field( 'cover-image', $cart_item['product_id'], false );
+			if ( $cover['image'] ) {
+				$cover['mobile_image'] = get_field( 'cover-image-mobile', $cart_item['product_id'], false );
+				$cover['iconcolor'] = get_field( 'photo_darkness', $cart_item['product_id'], false );
+				break;
+			}
+		}
+	}
+	
 	// woocommerce pages
 	if ( empty( $cover['image'] ) && function_exists( "is_woocommerce" ) && is_woocommerce() ) {
-		// note: singular woocommerce pages have already tried to get their specific header image (in the "cover-image" field)
-		$cover['image'] = get_post_thumbnail_id( get_option( 'woocommerce_shop_page_id' ) );
+		// note: singular woocommerce products have already tried to get their specific header image (in the "cover-image" field)
+		if ( empty( $cover['image'] ) ) {
+			$cover['image'] = get_post_thumbnail_id( get_option( 'woocommerce_shop_page_id' ) );
+		}
 	}
 	
 	// singular pages excluding events pages

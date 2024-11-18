@@ -11,7 +11,9 @@ Table of Contents:
 
 =========================== */
 
-
+// Hide "Ship to a different address?"
+add_filter( 'woocommerce_ship_to_different_address_checked', '__return_true' );
+add_filter( 'woocommerce_cart_needs_shipping_address', '__return_true' );
 
 // ===========================
 // 1. Theme Function Files

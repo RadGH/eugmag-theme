@@ -2,7 +2,7 @@
 <article <?php post_class('loop-single loop-404'); ?>>
 
 	<div class="loop-header">
-		<h1 class="loop-title">Not Found</h1>
+		<h1>Not Found</h1>
 	</div>
 
 	<div class="loop-body">

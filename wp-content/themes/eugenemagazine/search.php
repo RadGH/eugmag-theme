@@ -88,7 +88,7 @@ get_header();
 
 					<?php if ( $search_title ) { ?>
 						<div class="loop-header">
-							<h1 class="loop-title"><?php echo esc_html( $search_title ); ?></h1>
+							<h1><?php echo esc_html( $search_title ); ?></h1>
 
 							<?php if ( $search_content ) { ?>
 								<h3 class="loop-subtitle"><?php echo do_shortcode( $search_content ); ?></h3>
