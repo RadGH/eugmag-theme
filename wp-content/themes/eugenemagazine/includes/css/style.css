@@ -684,6 +684,7 @@ figure.wp-caption figcaption {
 }
 
 .cover-header .inside {
+	width: 100%;
 	padding: 40px 25px 40px 15px;
 }
 
@@ -767,6 +768,18 @@ figure.wp-caption figcaption {
 		margin-top: 40px;
 		clear: both;
 	}
+}
+
+/* Cover image with grid layout */
+.cover-image {
+	display: grid;
+	grid-template-columns: 1fr;
+}
+
+.cover-image > .inside,
+.cover-image > .cover-image-mobile-alt {
+	grid-column: 1;
+	grid-row: 1;
 }
 
 /* posts */

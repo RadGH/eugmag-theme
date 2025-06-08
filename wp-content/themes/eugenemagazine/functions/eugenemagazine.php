@@ -190,7 +190,7 @@ function em_get_cover_header() {
 	// woocommerce cart and checkout using a product's cover
 	// On cart and checkout, use the first product from cart with the "cover-image" field
 	if ( function_exists( "is_cart" ) && (is_cart() || is_checkout()) ) {
-		if ( WC()->cart->get_cart_contents() ) foreach( WC()->cart->get_cart_contents() as $cart_item ) {
+		if ( WC()->cart && WC()->cart->get_cart_contents() ) foreach( WC()->cart->get_cart_contents() as $cart_item ) {
 			$cover['image'] = get_field( 'cover-image', $cart_item['product_id'], false );
 			if ( $cover['image'] ) {
 				$cover['mobile_image'] = get_field( 'cover-image-mobile', $cart_item['product_id'], false );

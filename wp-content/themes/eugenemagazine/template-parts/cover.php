@@ -22,10 +22,20 @@ if ( $cover['logo']['image'] ) {
 	$logo_id = is_array($cover['logo']['image']) ? $cover['logo']['image']['ID'] : (int) $cover['logo']['image'];
 }
 
+$mobile_bg_tag = false;
+if ( ! empty( $cover['mobile_image']) ) {
+	$id = is_array($cover['mobile_image']) ? $cover['mobile_image']['ID'] : (int) $cover['mobile_image'];
+	$url = $id ? wp_get_attachment_image_url( $id, 'mobile-alt' ) : false;
+	if ( $url ) $mobile_bg_tag = 'style="background-image: url('. esc_attr($url) .');"';
+}
+
 ?>
 
 <header id="header" class="<?php echo implode(' ', $classes); ?>">
 	<div class="cover-image" <?php echo $bg_tag; ?>>
+		
+		<?php if ( $mobile_bg_tag ) echo '<div class="cover-image-mobile-alt" '. $mobile_bg_tag.'>'; ?>
+		
 		<div class="inside narrow clearfix">
 			
 			<?php get_template_part( 'template-parts/menu-button' ); ?>
@@ -43,5 +53,9 @@ if ( $cover['logo']['image'] ) {
 			</div>
 			
 		</div>
+		</div>
+	
+		<?php if ( $mobile_bg_tag) echo '</div>'; ?>
+	
 	</div>
 </header> <!-- /#header -->
