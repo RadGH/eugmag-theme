@@ -83,10 +83,6 @@ Functions:
 	format_filesize( $bytes, $precision = 2 )
 		Returns a user-friendly file size such as 0.43mb
 	
-	get_user( $value, $return = 'object' )
-		Provide a user ID or object and return the type of data you want. Possible options are "object" and "id". Other terms will return the value provided from object->get( $return ) (even if this returns false)
-		Returns false if user does not exist
-		
 	video_get_service( $video_url )
 		Gets the service, "youtube" or "vimeo", based on a look at the url.
 
@@ -767,47 +763,6 @@ function format_filesize( $bytes, $precision = 2 ) {
 	// $bytes /= (1 << (10 * $pow));
 
 	return round( $bytes, $precision ) . ' ' . $units[$pow];
-}
-
-function get_user( $user_id, $return = 'object' ) {
-	if ( $user_id === null ) {
-		// user_id not provided, use current user
-		$user = wp_get_current_user();
-		if ( $user ) {
-			$user_id = $user->ID;
-		}
-	}else{
-		if ( is_object( $user_id ) && property_exists( $user_id, 'ID' ) ) {
-			// user_id is a wp_user object, retrieve ID separately
-			$user = $user_id;
-			$user_id = $user->ID;
-		}else{
-			// user_id is likely an integer, try to get account by ID
-			$user = get_user_by( 'id', $user_id );
-		}
-	}
-
-	if ( $user && $user->ID ) {
-		switch ( strtolower( $return ) ) {
-
-			case 'id':
-			case 'user_id':
-				return $user->ID;
-				break;
-
-			case 'object':
-			case 'wp_user':
-				return $user;
-				break;
-
-			default:
-				return $user->get( $return );
-				break;
-
-		}
-	}
-
-	return false;
 }
 
 function video_get_service( $video_url ) {
