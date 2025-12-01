@@ -1,5 +1,5 @@
 /*
-Version 1.2
+Version 1.2.1
 */
 
 .overlay .readmore {
@@ -30,4 +30,9 @@ label.woocommerce-form__label:has(#ship-to-different-address-checkbox:checked) {
 
 #ship-to-different-address:has(#ship-to-different-address-checkbox:checked)::before {
 	content: 'Shipping address';
+}
+
+/* Fix Facebook comments width */
+.post-comments .fb-comments iframe {
+    width: 100% !important;
 }
