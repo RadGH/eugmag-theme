@@ -1,3 +1,7 @@
+/*
+Version 1.2.2
+*/
+
 jQuery(function () {
 	// Adds/removes body the classes "scrolled-from-top" and "scrolled-past-header", as you scroll down the page.
 	init_scroll_tracking();
@@ -10,6 +14,9 @@ jQuery(function () {
 
 	// Enable isotope filtering and sorting of Woocommerce products
 	init_woocommerce_isotope();
+
+	// Add minimum price to Custom Price for WooCommerce plugin
+	init_minimum_custom_price_wc();
 });
 
 function init_woocommerce_isotope() {
@@ -265,4 +272,43 @@ function init_mobile_button( button_selector, navigation_selector, inner_nav_sel
 			}
 		}
 	});
+}
+
+function init_minimum_custom_price_wc() {
+	let input = document.querySelector('.product .cpw .cpw-input');
+	let form = input ? input.closest('form') : false;
+	if ( ! input || ! form ) return;
+
+	// 1. Require a minimum price
+	let min_price = 5;
+
+	// Update input attributes
+	input.setAttribute( 'min', min_price );
+	input.setAttribute( 'placeholder', 'Enter your price here' );
+
+	// On form submit, check value
+	form.addEventListener('submit', function ( e ) {
+		let value = parseFloat( input.value );
+		if ( isNaN(value) || value < min_price ) {
+			e.preventDefault();
+			alert('The minimum price for this product is $'+ min_price + '.');
+			input.focus();
+			return false;
+		}
+	});
+
+	// 2. Remove space surrounding currency label
+	let $currency_label = jQuery(form).find('.cpw label .woocommerce-Price-currencySymbol');
+
+	if ( $currency_label.length > 0 ) {
+		let label_text = $currency_label.text();
+		label_text = label_text.replace('( ', '(').replace(' )', ')'); // Remove spaces inside parentheses
+		label_text = label_text + ':'; // Add colon at end
+		$currency_label.text( label_text );
+	}
+
+	// Log that this product has custom pricing handler
+	if ( console && console.log ) {
+		console.log('[Eugene Magazine Theme] Custom pricing enabled for this product, minimum price set to $'+ min_price +'.');
+	}
 }

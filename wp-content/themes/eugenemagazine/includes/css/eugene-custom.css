@@ -1,5 +1,5 @@
 /*
-Version 1.2.1
+Version 1.2.2
 */
 
 .overlay .readmore {
@@ -35,4 +35,12 @@ label.woocommerce-form__label:has(#ship-to-different-address-checkbox:checked) {
 /* Fix Facebook comments width */
 .post-comments .fb-comments iframe {
     width: 100% !important;
+}
+
+/* Improve appearance of Custom Pricing for WooCommerce form input on product page */
+.product .cpw .cpw-input {
+	text-align: left;
+	padding: 10px 10px;
+	margin-top: 8px;
+	font-weight: normal;
 }
