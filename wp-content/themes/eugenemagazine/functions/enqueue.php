@@ -101,13 +101,10 @@ function ld_enqueue_theme_scripts() {
 	wp_enqueue_style( 'gill-sans', '//use.typekit.net/srw8wxp.css?v=2', array() );
 
 	// Theme files
-	$theme_version = '2.2.8';
-	$asset_version = '1.2.2'; // main.js, eugene-custom.css
-	
-	ld_enqueue_script( '/includes/js/main.js', array( 'jquery' ), $asset_version );
+	ld_enqueue_script( '/includes/js/main.js', array( 'jquery' ), '1.2.3' );
 	ld_enqueue_style(  '/includes/libraries/normalize/normalize.min.css', array(), '3.0.2' );
-	ld_enqueue_style(  '/includes/css/style.css', array(), $theme_version );
-	ld_enqueue_style(  '/includes/css/eugene-custom.css', array(), $asset_version );
+	ld_enqueue_style(  '/includes/css/style.css', array(), wp_get_theme()->get( 'Version' ) );
+	ld_enqueue_style(  '/includes/css/eugene-custom.css', array(), '1.2.2' );
 
 	ld_enqueue_style(  '/includes/css/print.css', array(), null, 'print' );
 

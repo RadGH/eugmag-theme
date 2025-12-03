@@ -1,5 +1,5 @@
 /*
-Version 1.2.2
+Version 1.2.3
 */
 
 jQuery(function () {
@@ -288,7 +288,13 @@ function init_minimum_custom_price_wc() {
 
 	// On form submit, check value
 	form.addEventListener('submit', function ( e ) {
-		let value = parseFloat( input.value );
+		let input = document.querySelector('.product .cpw .cpw-input');
+
+		// Get value as float "2,000.00" -> 2000.00
+		let value = input.value;
+		value = ('' + value).replace(',', ''); // Remove commas
+		value = parseFloat( value ); // Convert to float
+
 		if ( isNaN(value) || value < min_price ) {
 			e.preventDefault();
 			alert('The minimum price for this product is $'+ min_price + '.');
