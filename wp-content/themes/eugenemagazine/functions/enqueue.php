@@ -104,7 +104,7 @@ function ld_enqueue_theme_scripts() {
 	ld_enqueue_script( '/includes/js/main.js', array( 'jquery' ), '1.2.3' );
 	ld_enqueue_style(  '/includes/libraries/normalize/normalize.min.css', array(), '3.0.2' );
 	ld_enqueue_style(  '/includes/css/style.css', array(), wp_get_theme()->get( 'Version' ) );
-	ld_enqueue_style(  '/includes/css/eugene-custom.css', array(), '1.2.2' );
+	ld_enqueue_style(  '/includes/css/eugene-custom.css', array(), '1.2.4' );
 
 	ld_enqueue_style(  '/includes/css/print.css', array(), null, 'print' );
 

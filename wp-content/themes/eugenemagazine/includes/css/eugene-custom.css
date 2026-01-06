@@ -1,5 +1,5 @@
 /*
-Version 1.2.2
+Version 1.2.4
 */
 
 .overlay .readmore {
@@ -43,4 +43,40 @@ label.woocommerce-form__label:has(#ship-to-different-address-checkbox:checked) {
 	padding: 10px 10px;
 	margin-top: 8px;
 	font-weight: normal;
+}
+
+/* Guides mobile support */
+.single-service-content img {
+	margin: 0 0 20px 0;
+	max-width: 100%;
+	height: auto;
+}
+
+@media ( max-width: 1024px ) {
+	.loop-header h1 {
+		font-size: 36px;
+	}
+
+	.service_meta_title {
+		float: none;
+		width: auto;
+	}
+
+	.service_meta_content {
+		margin-left: 0;
+	}
+}
+
+/* Guides breadcrumb+sharing mobile support */
+@media ( max-width: 1024px ) {
+	.breadcrumbs + .social-sharing {
+		margin-top: 6px;
+	}
+}
+
+@media ( max-width: 540px ) {
+	.breadcrumbs + .social-sharing {
+		float: none;
+		margin-top: 36px;
+	}
 }
