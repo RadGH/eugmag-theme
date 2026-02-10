@@ -8,8 +8,12 @@ remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 3
 function custom_ad_print_scripts() {
 	?>
 	<script type="text/javascript">
-		var ld_ads_markup = [];
-		var ad_ajax_url = '/ad_ajax.php';
+		if ( typeof window.ld_ads_markup === "undefined" ) {
+			window.ld_ads_markup = [];
+		}
+		if ( typeof window.ad_ajax_url === "undefined" ) {
+			window.ad_ajax_url = { "ajax_url": "\/wp-content\/plugins\/limelight-advertisements\/includes\/ajax.php" };
+		}
 	</script>
 	<?php
 }
