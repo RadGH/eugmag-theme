@@ -51,7 +51,7 @@ if ( $img_id && $m = ld_get_attachment_mobile( $img_id ) ) {
 				<div class="overlay">
 					<a href="<?php the_permalink(); ?>">
 						<h3><?php the_title(); ?></h3>
-						<h4 class="subtitle"><?php the_field( 'subtitle' ); ?></h4>
+						<h4 class="subtitle"><?php echo get_field( 'subtitle' ); ?></h4>
 						<div class="readmore button button-white">Read Now</div>
 					</a>
 				</div>

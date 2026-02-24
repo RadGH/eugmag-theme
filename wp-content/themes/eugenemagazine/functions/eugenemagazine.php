@@ -18,7 +18,7 @@ function custom_ad_print_scripts() {
 	<?php
 }
 remove_action( 'wp_print_scripts', 'ld_ads_print_scripts' );
-add_action( 'wp_print_scripts', 'custom_ad_print_scripts' );
+add_action( 'wp_print_scripts', 'custom_ad_print_scripts', 1000 );
 
 // Change woocommerce breadcrumb Home link to Shop home
 function woo_custom_breadrumb_home_url() {
