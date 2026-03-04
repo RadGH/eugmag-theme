@@ -1,4 +1,33 @@
 <?php
+
+EM_Guides_Template::display_single_guide(array(
+	// General
+	'back_link' => '/recreation-guide/',
+	'back_link_text' => '&larr; Recreation Guide',
+	'ad_sidebar' => 'Recreation Guide Sidebar',
+	
+	// Fields
+	'logo_id' => get_field( 'recreation_logo', get_the_ID(), false ),
+	'gallery_image_ids' => get_field( 'recreation_gallery', get_the_ID(), false ),
+	'address' => get_field( 'recreation_address' ),
+	'description' => get_field( 'recreation_description' ),
+	'hours' => get_field( 'recreation_hours' ),
+	'price' => get_field( 'recreation_price' ),
+	'category_terms' => get_the_terms( get_the_ID(),'activity' ),
+	'category_label' => 'Recreation Types',
+	//'meals_served' => get_field( '' ),
+	'info' => get_field( 'recreation_info' ),
+	'phone' => get_field( 'recreation_phone' ),
+	'website' => get_field( 'recreation_website' ),
+	'facebook' => get_field( 'recreation_facebook' ),
+	'instagram' => get_field( 'recreation_instagram' ),
+	'twitter' => get_field( 'recreation_twitter' ),
+	'gmaps' => get_field( 'recreation_gmaps' ),
+));
+
+return;
+
+/*
 get_header();
 ?>
 
@@ -114,3 +143,4 @@ get_header();
 
 <?php
 get_footer();
+*/

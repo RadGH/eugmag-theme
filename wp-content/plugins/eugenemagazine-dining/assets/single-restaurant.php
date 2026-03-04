@@ -1,4 +1,33 @@
 <?php
+
+EM_Guides_Template::display_single_guide(array(
+	// General
+	'back_link' => '/dining-guide/',
+	'back_link_text' => '&larr; Dining Guide',
+	'ad_sidebar' => 'Dining Guide Sidebar',
+	
+	// Fields
+	'logo_id' => get_field( 'restaurant_logo', get_the_ID(), false ),
+	'gallery_image_ids' => get_field( 'restaurant_gallery', get_the_ID(), false ),
+	'address' => get_field( 'restaurant_address' ),
+	'description' => get_field( 'restaurant_description' ),
+	'hours' => get_field( 'restaurant_hours' ),
+	'price' => get_field( 'restaurant_price' ),
+	'category_terms' => get_the_terms( get_the_ID(),'food_type' ),
+	'category_label' => 'Type of Cuisine',
+	'meals_served' => get_field( 'restaurant_meals_served' ),
+	'info' => get_field( 'restaurant_info' ),
+	'phone' => get_field( 'restaurant_phone' ),
+	'website' => get_field( 'restaurant_website' ),
+	'facebook' => get_field( 'restaurant_facebook' ),
+	'instagram' => get_field( 'restaurant_instagram' ),
+	'twitter' => get_field( 'restaurant_twitter' ),
+	'gmaps' => get_field( 'restaurant_gmaps' ),
+));
+
+return;
+
+/*
 get_header();
 ?>
 
@@ -51,10 +80,10 @@ get_header();
 								<?php
 
 
-								/*if ( get_field( 'restaurant_neighborhood' ) ) {
-									$neighborhood = get_term( intval( get_field( 'restaurant_neighborhood' ) ) )->name;
-									echo '<div class="rest_neighborhood"><div class="rest_meta_title">Neighborhood</div><div class="rest_meta_content">', $neighborhood, '</div></div>';
-								}*/
+								// if ( get_field( 'restaurant_neighborhood' ) ) {
+								// 	$neighborhood = get_term( intval( get_field( 'restaurant_neighborhood' ) ) )->name;
+								// 	echo '<div class="rest_neighborhood"><div class="rest_meta_title">Neighborhood</div><div class="rest_meta_content">', $neighborhood, '</div></div>';
+								// }
 								if ( get_field( 'restaurant_address' ) ) {
 									echo '<div class="rest_address"><div class="rest_meta_title">Address</div><div class="rest_meta_content">', get_field( 'restaurant_address' ), '</div></div>';
 								}
@@ -123,3 +152,4 @@ get_header();
 
 <?php
 get_footer();
+*/

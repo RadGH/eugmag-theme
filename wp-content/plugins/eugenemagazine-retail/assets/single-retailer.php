@@ -1,4 +1,33 @@
 <?php
+
+EM_Guides_Template::display_single_guide(array(
+	// General
+	'back_link' => '/retail-guide/',
+	'back_link_text' => '&larr; Retail Guide',
+	'ad_sidebar' => 'Retail Guide Sidebar',
+	
+	// Fields
+	'logo_id' => get_field( 'retailer_logo', get_the_ID(), false ),
+	'gallery_image_ids' => get_field( 'retailer_gallery', get_the_ID(), false ),
+	'address' => get_field( 'retailer_address' ),
+	'description' => get_field( 'retailer_description' ),
+	'hours' => get_field( 'retailer_hours' ),
+	'price' => get_field( 'retailer_price' ),
+	'category_terms' => get_the_terms( get_the_ID(),'retail_type' ),
+	'category_label' => 'Retail Types',
+	// 'meals_served' => get_field( '' ),
+	'info' => get_field( 'retailer_info' ),
+	'phone' => get_field( 'retailer_phone' ),
+	'website' => get_field( 'retailer_website' ),
+	'facebook' => get_field( 'retailer_facebook' ),
+	'instagram' => get_field( 'retailer_instagram' ),
+	'twitter' => get_field( 'retailer_twitter' ),
+	'gmaps' => get_field( 'retailer_gmaps' ),
+));
+
+return;
+
+/*
 get_header();
 ?>
 
@@ -114,3 +143,4 @@ get_header();
 
 <?php
 get_footer();
+*/

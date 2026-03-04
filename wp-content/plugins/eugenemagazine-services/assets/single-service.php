@@ -1,4 +1,33 @@
 <?php
+
+EM_Guides_Template::display_single_guide(array(
+	// General
+	'back_link' => '/services-guide/',
+	'back_link_text' => '&larr; Services Guide',
+	'ad_sidebar' => 'Service Guide Sidebar',
+	
+	// Fields
+	'logo_id' => get_field( 'service_logo', get_the_ID(), false ),
+	'gallery_image_ids' => get_field( 'service_gallery', get_the_ID(), false ),
+	'address' => get_field( 'service_address' ),
+	'description' => get_field( 'service_description' ),
+	'hours' => get_field( 'service_hours' ),
+	'price' => get_field( 'service_price' ),
+	'category_terms' => get_the_terms( get_the_ID(),'service_type' ),
+	'category_label' => 'Service Types',
+	// 'meals_served' => get_field( '' ),
+	'info' => get_field( 'service_info' ),
+	'phone' => get_field( 'service_phone' ),
+	'website' => get_field( 'service_website' ),
+	'facebook' => get_field( 'service_facebook' ),
+	'instagram' => get_field( 'service_instagram' ),
+	'twitter' => get_field( 'service_twitter' ),
+	'gmaps' => get_field( 'service_gmaps' ),
+));
+
+return;
+
+/*
 get_header();
 ?>
 
@@ -114,3 +143,4 @@ get_header();
 
 <?php
 get_footer();
+*/

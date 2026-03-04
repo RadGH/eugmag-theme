@@ -1,11 +1,12 @@
 <?php
 /*
 Plugin Name: Eugene Magazine Service Guide
-Version:     1.0
+Version:     1.1
 Description: Provides Eugene Magazine's service guide.
 Author:      Rosie Leung
 Author URI:  https://rosieleung.com/
 License:     Copyright 2021 Rosie Leung
+Requires Plugins: eugenemagazine-guides
 */
 
 defined( 'ABSPATH' ) || exit;

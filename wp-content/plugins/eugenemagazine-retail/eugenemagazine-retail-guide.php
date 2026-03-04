@@ -1,11 +1,12 @@
 <?php
 /*
 Plugin Name: Eugene Magazine Retail Guide
-Version:     1.1
+Version:     1.2
 Description: Provides Eugene Magazine's retail guide.
 Author:      Rosie Leung
 Author URI:  https://rosieleung.com/
 License:     Copyright 2020 Rosie Leung
+Requires Plugins: eugenemagazine-guides
 */
 
 defined( 'ABSPATH' ) || exit;

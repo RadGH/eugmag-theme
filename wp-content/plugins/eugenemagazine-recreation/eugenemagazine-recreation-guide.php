@@ -1,11 +1,12 @@
 <?php
 /*
 Plugin Name: Eugene Magazine Recreation Guide
-Version:     1.0
+Version:     1.1
 Description: Provides Eugene Magazine's recreation guide.
 Author:      Rosie Leung
 Author URI:  https://rosieleung.com/
 License:     Copyright 2021 Rosie Leung
+Requires Plugins: eugenemagazine-guides
 */
 
 defined( 'ABSPATH' ) || exit;
