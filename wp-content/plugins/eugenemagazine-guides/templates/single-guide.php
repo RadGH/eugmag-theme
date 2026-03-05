@@ -24,24 +24,12 @@ get_header();
 			<div class="inside">
 				<article <?php post_class( 'loop-single single-guide' ); ?>>
 					
-					<div class="loop-header">
-						
-						<?php
-						if ( ! empty( $args['back_link'] ) ) {
-							$back_text = $args['back_link_text'] ?? '&larr; Go back';
-							echo '<div class="breadcrumbs"><a href="' . esc_attr( $args['back_link'] ) . '">' . $back_text . '</a></div>';
-						}
-						?>
-						
-						<?php /*
-						<div class="social-sharing">
-							Share this page: <?php echo implode( generate_sharing_links() ); ?>
-						</div>
- 						*/ ?>
-						
-						<?php the_title( '<h1 class="loop-title">', '</h1>' ); ?>
-					
-					</div>
+					<?php
+					if ( ! empty( $args['back_link'] ) ) {
+						$back_text = $args['back_link_text'] ?? '&larr; Go back';
+						echo '<div class="breadcrumbs"><a href="' . esc_attr( $args['back_link'] ) . '">' . $back_text . '</a></div>';
+					}
+					?>
 					
 					<div class="single-guide-body loop-body">
 						
@@ -109,6 +97,18 @@ get_header();
 						</div>
 						
 						<div class="single-guide-content loop-content">
+							
+							<div class="loop-header">
+								
+								<?php /*
+								<div class="social-sharing">
+									Share this page: <?php echo implode( generate_sharing_links() ); ?>
+								</div>
+		                        */ ?>
+								
+								<?php the_title( '<h1 class="loop-title">', '</h1>' ); ?>
+							
+							</div>
 							
 							<?php
 							$logo_id = $args['logo_id'] ?? false;
