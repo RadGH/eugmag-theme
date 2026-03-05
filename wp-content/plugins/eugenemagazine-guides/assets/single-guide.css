@@ -1,15 +1,16 @@
-
-.single-guide-content {
-	margin-right: 340px;
-}
-
 .single-guide-content .ld-ad {
 	margin-bottom: 40px;
 }
 
-.single-guide-sidebar {
-	width: 300px;
-	float: right;
+@media ( min-width: 1023.1px ) {
+	.single-guide-content {
+		margin-right: 720px;
+	}
+
+	.single-guide-sidebar {
+		width: 640px;
+		float: right;
+	}
 }
 
 @media (max-width: 1023px) {
@@ -26,24 +27,59 @@
 }
 
 /* */
+#content > .inside:has(.single-guide) {
+	padding: 0 40px;
+}
 
+@media ( max-width: 1023px) {
+	#content > .inside:has(.single-guide) {
+		padding: 0 20px;
+	}
 
-.guide_meta_title {
-	color: #888888;
-	text-transform: uppercase;
-	float: left;
-	width: 200px;
-	font-size: 14px;
+	.single-guide-body {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.single-guide-body .single-guide-sidebar {
+		order: 2;
+	}
+}
+
+.guide_featured {
+	margin: 1em 0;
+}
+
+.guide_featured img {
+	width: 100%;
+}
+
+.guide_category_art img {
+	width: 100%;
+}
+
+/* */
+
+.guide_meta_item {
 	margin-bottom: 1em;
+}
+
+.guide_meta_item .guide_meta_title {
+	/*color: #888888;*/
+	text-transform: uppercase;
+	/*float: left;*/
+	/*width: 200px;*/
+	font-size: 14px;
+	/*margin-bottom: 1em;*/
 	font-weight: bold;
 }
 
-.guide_meta_content {
-	margin-left: 210px;
-	margin-bottom: 1em;
+.guide_meta_item .guide_meta_content {
+	/*margin-left: 210px;*/
+	/*margin-bottom: 1em;*/
 }
 
-.guide_meta_content p {
+.guide_meta_item .guide_meta_content p {
 	margin: 0;
 }
 
@@ -79,3 +115,50 @@ a.guide_twitter {
 a.guide_instagram {
 	background-position: -72px 0;
 }
+
+/* */
+
+.single-guide-body {
+	font-family: gill-sans-nova, Helvetica, Arial, sans-serif;
+}
+
+/* */
+
+.guide_icons_list {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 10px;
+
+	margin: 15px 0;
+	padding: 0;
+}
+
+.guide_icons_list .guide_icon_item {
+	display: grid;
+	grid-template-columns: 42px 1fr;
+	gap: 20px;
+	align-items: center;
+}
+
+.guide_icons_list .guide_icon_item .guide_icon_image {
+	width: 100%;
+	height: auto;
+}
+
+.guide_icons_list .guide_icon_item .guide_icon_content {
+}
+
+/*
+.guide_icons_list .guide_icon_item {
+	list-style-position: inside;
+}
+.guide_icons_list .guide_icon_item.guide_address {
+	list-style-image: url("images/icon-location.png");
+}
+.guide_icons_list .guide_icon_item.guide_phone {
+	list-style-image: url("images/icon-phone.png");
+}
+.guide_icons_list .guide_icon_item.guide_website {
+	list-style-image: url("images/icon-website.png");
+}
+ */

@@ -7,6 +7,7 @@ EM_Guides_Template::display_single_guide(array(
 	'ad_sidebar' => 'Service Guide Sidebar',
 	
 	// Fields
+	'featured' => get_field('featured'),
 	'logo_id' => get_field( 'service_logo', get_the_ID(), false ),
 	'gallery_image_ids' => get_field( 'service_gallery', get_the_ID(), false ),
 	'address' => get_field( 'service_address' ),

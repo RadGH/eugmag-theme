@@ -34,6 +34,7 @@ class EM_Guides_Template {
 			'ad_sidebar' => '',
 			
 			// Fields
+			'featured' => '',
 			'logo_id' => '',
 			'gallery_image_ids' => '',
 			'address' => '',

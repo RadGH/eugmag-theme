@@ -7,6 +7,7 @@ EM_Guides_Template::display_single_guide(array(
 	'ad_sidebar' => 'Retail Guide Sidebar',
 	
 	// Fields
+	'featured' => get_field('featured'),
 	'logo_id' => get_field( 'retailer_logo', get_the_ID(), false ),
 	'gallery_image_ids' => get_field( 'retailer_gallery', get_the_ID(), false ),
 	'address' => get_field( 'retailer_address' ),
