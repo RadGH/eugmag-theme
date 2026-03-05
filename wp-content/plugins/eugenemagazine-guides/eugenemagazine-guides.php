@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Eugene Magazine Guides
-Version:     1.0.0
+Version:     1.1
 Description: Extends various guides (Recreation, Restaurants, Services, Retail) to have a more extensive template.
 Author:      Radley Sustaire
 Author URI:  https://radleysustaire.com/
@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
 
 define( 'EUGMAG_GUIDES_URL', untrailingslashit( plugin_dir_url( __FILE__ ) ) );
 define( 'EUGMAG_GUIDES_PATH', dirname( __FILE__ ) );
-define( 'EUGMAG_GUIDES_VERSION', '1.0.0' );
+define( 'EUGMAG_GUIDES_VERSION', '1.1' );
 
 add_action( 'plugins_loaded', 'initialize_eugmag_guides_plugin' );
 
