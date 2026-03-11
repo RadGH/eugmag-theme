@@ -228,16 +228,16 @@ function paginated_dining_guide( $page_number = null, $foodtype = 0 ) {
 
 	if ( $query->have_posts() ) :
 		?>
-		<ul class="dining-guide-list">
+		<ul class="dining-guide-list guide-list">
 			<?php
 			while ( $query->have_posts() ) :
 				$query->the_post();
 
 				if ( get_post_meta( get_the_ID(), 'featured', true ) ) {
-					echo '<li class="dining-guide-featured-li">';
-					echo '<div class="dining-guide-featured">Featured</div>';
+					echo '<li class="guide-item featured dining-guide-featured-li">';
+					echo '<div class="featured-badge dining-guide-featured">Featured</div>';
 				} else {
-					echo '<li>';
+					echo '<li class="guide-item">';
 				}
 				echo '<div class="dining-guide-title"><a href="', get_post_permalink(), '">', get_the_title(), '</a></div>';
 

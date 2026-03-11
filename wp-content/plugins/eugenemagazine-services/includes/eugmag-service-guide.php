@@ -239,10 +239,10 @@ function rg_paginated_service_guide( $page_number = null, $servicetype = 0 ) {
 				$query->the_post();
 
 				if ( get_post_meta( get_the_ID(), 'featured', true ) ) {
-					echo '<li class="service-guide-featured-li">';
-					echo '<div class="service-guide-featured">Featured</div>';
+					echo '<li class="guide-item featured service-guide-featured-li">';
+					echo '<div class="featured-badge service-guide-featured">Featured</div>';
 				} else {
-					echo '<li>';
+					echo '<li class="guide-item">';
 				}
 				echo '<div class="service-guide-title"><a href="', get_post_permalink(), '">', get_the_title(), '</a></div>';
 

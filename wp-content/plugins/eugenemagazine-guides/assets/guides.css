@@ -187,3 +187,16 @@ a.guide_instagram {
 		order: -1;
 	}
 }
+
+/* List view */
+.guide-list li.guide-item.featured {
+	border-color: #873405;
+}
+
+.guide-list li.guide-item.featured .featured-badge {
+	background: #873405;
+}
+
+.guide-list li.guide-item.featured .featured-badge::after {
+	border-left-color: #873405;
+}

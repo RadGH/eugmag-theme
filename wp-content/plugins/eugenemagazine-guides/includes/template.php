@@ -100,9 +100,10 @@ class EM_Guides_Template {
 			wp_enqueue_style( 'flickity', get_template_directory_uri() . '/includes/libraries/flickity/flickity.css' );
 			wp_enqueue_script( 'flickity', get_template_directory_uri() . '/includes/libraries/flickity/flickity.pkgd.min.js', array( 'jquery' ), null, true );
 			
-			wp_enqueue_style( 'em-single-guide', EUGMAG_GUIDES_URL . '/assets/single-guide.css', array(), EUGMAG_GUIDES_VERSION );
 			wp_enqueue_script( 'em-single-guide', EUGMAG_GUIDES_URL . '/assets/single-guide.js', array('jquery', 'flickity'), EUGMAG_GUIDES_VERSION, true );
 		}
+		
+		wp_enqueue_style( 'em-guides', EUGMAG_GUIDES_URL . '/assets/guides.css', array(), EUGMAG_GUIDES_VERSION );
 	}
 	
 }

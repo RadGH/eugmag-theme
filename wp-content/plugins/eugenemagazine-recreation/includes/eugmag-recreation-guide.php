@@ -239,10 +239,10 @@ function rg_paginated_recreation_guide( $page_number = null, $recreationtype = 0
 				$query->the_post();
 
 				if ( get_post_meta( get_the_ID(), 'featured', true ) ) {
-					echo '<li class="recreation-guide-featured-li">';
-					echo '<div class="recreation-guide-featured">Featured</div>';
+					echo '<li class="guide-item featured recreation-guide-featured-li">';
+					echo '<div class="featured-badge recreation-guide-featured">Featured</div>';
 				} else {
-					echo '<li>';
+					echo '<li class="guide-item">';
 				}
 				echo '<div class="recreation-guide-title"><a href="', get_post_permalink(), '">', get_the_title(), '</a></div>';
 
