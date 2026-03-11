@@ -113,7 +113,9 @@ get_header();
 							<?php
 							$logo_id = $args['logo_id'] ?? false;
 							if ( $logo_id ) {
+								echo '<div class="guide_logo">';
 								echo '<img src="', esc_attr( wp_get_attachment_image_url( $logo_id, 'thumbnail' ) ), '" alt="logo" />';
+								echo '</div>';
 							}
 							?>
 							
