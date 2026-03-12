@@ -190,13 +190,13 @@ a.guide_instagram {
 
 /* List view */
 .guide-list li.guide-item.featured {
-	border-color: #873405;
+	border-color: #c1842a;
 }
 
 .guide-list li.guide-item.featured .featured-badge {
-	background: #873405;
+	background: #c1842a;
 }
 
 .guide-list li.guide-item.featured .featured-badge::after {
-	border-left-color: #873405;
+	border-left-color: #c1842a;
 }
