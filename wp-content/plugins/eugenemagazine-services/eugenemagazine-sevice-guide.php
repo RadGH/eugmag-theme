@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Eugene Magazine Service Guide
-Version:     1.1
+Version:     1.4
 Description: Provides Eugene Magazine's service guide.
 Author:      Rosie Leung
 Author URI:  https://rosieleung.com/

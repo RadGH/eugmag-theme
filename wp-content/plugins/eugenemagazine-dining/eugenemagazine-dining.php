@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Eugene Magazine Dining Guide
-Version:     1.2
+Version:     1.4
 Description: Provides Eugene Magazine's dining guide.
 Author:      Rosie Leung
 Author URI:  https://rosieleung.com/
