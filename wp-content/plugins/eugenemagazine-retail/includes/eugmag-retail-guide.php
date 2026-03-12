@@ -104,7 +104,7 @@ function rg_retail_guide_shortcode() {
 	}
 
 	// OUTPUT PAGINATED RETAILER LIST
-	echo '<div id="retail-guide-list-wrapper">', rg_paginated_retail_guide(), '</div>';
+	echo '<div id="retail-guide-list-wrapper guide-list-wrapper">', rg_paginated_retail_guide(), '</div>';
 	wp_reset_postdata();
 	?>
 	<script>
@@ -233,7 +233,7 @@ function rg_paginated_retail_guide( $page_number = null, $retailertype = 0 ) {
 
 	if ( $query->have_posts() ) :
 		?>
-		<ul class="retail-guide-list">
+		<ul class="retail-guide-list guide-list">
 			<?php
 			while ( $query->have_posts() ) :
 				$query->the_post();

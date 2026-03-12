@@ -104,7 +104,7 @@ function rg_service_guide_shortcode() {
 	}
 
 	// OUTPUT PAGINATED service LIST
-	echo '<div id="service-guide-list-wrapper">', rg_paginated_service_guide(), '</div>';
+	echo '<div id="service-guide-list-wrapper guide-list-wrapper">', rg_paginated_service_guide(), '</div>';
 	wp_reset_postdata();
 	?>
 	<script>
@@ -233,7 +233,7 @@ function rg_paginated_service_guide( $page_number = null, $servicetype = 0 ) {
 
 	if ( $query->have_posts() ) :
 		?>
-		<ul class="service-guide-list">
+		<ul class="service-guide-list guide-list">
 			<?php
 			while ( $query->have_posts() ) :
 				$query->the_post();
