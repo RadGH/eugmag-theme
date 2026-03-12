@@ -22,7 +22,7 @@ get_header();
 			?>
 			
 			<div class="inside">
-				<article <?php post_class( 'loop-single single-guide' ); ?>>
+				<article <?php post_class( 'loop-single single-guide featured' ); ?>>
 					
 					<?php
 					if ( ! empty( $args['back_link'] ) ) {
@@ -87,7 +87,7 @@ get_header();
 							// MAP
 							if ( $gmaps && isset($gmaps['lat']) && isset($gmaps['lng']) ) {
 								?>
-								<div id="guide_map" class="retail_map" data-markerdir="<?php echo get_template_directory_uri() . '/img/markers/'; ?>">
+								<div id="guide_map" class="guide_map" data-markerdir="<?php echo get_template_directory_uri() . '/img/markers/'; ?>">
 									<div class="marker" data-lat="<?php echo esc_attr( $gmaps['lat'] ); ?>" data-lng="<?php echo esc_attr( $gmaps['lng'] ); ?>" title="<?php the_title(); ?>"></div>
 								</div>
 								<?php
@@ -99,12 +99,6 @@ get_header();
 						<div class="single-guide-content loop-content">
 							
 							<div class="loop-header">
-								
-								<?php /*
-								<div class="social-sharing">
-									Share this page: <?php echo implode( generate_sharing_links() ); ?>
-								</div>
-		                        */ ?>
 								
 								<?php the_title( '<h1 class="loop-title">', '</h1>' ); ?>
 							
@@ -242,9 +236,9 @@ get_header();
 							}
 							?>
 						
-						</div><!-- .loop - content-->
+						</div><!-- .loop-content-->
 					
-					</div><!-- .loop - body-->
+					</div><!-- .loop-body-->
 				
 				</article>
 			</div>

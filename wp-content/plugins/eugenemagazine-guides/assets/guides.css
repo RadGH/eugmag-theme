@@ -3,23 +3,23 @@
 }
 
 @media ( min-width: 1023.1px ) {
-	.single-guide-content {
+	.single-guide.featured .single-guide-content {
 		margin-right: 720px;
 	}
 
-	.single-guide-sidebar {
+	.single-guide.featured .single-guide-sidebar {
 		width: 640px;
 		float: right;
 	}
 }
 
 @media (max-width: 1023px) {
-	.single-guide-content {
+	.single-guide.featured .single-guide-content {
 		margin-left: 0;
 		margin-right: 0;
 	}
 
-	.single-guide-sidebar {
+	.single-guide.featured .single-guide-sidebar {
 		float: none;
 		width: 100%;
 		margin-bottom: 3em;
@@ -36,12 +36,12 @@
 		padding: 0 20px;
 	}
 
-	.single-guide-body {
+	.single-guide.featured .single-guide-body {
 		display: flex;
 		flex-direction: column;
 	}
 
-	.single-guide-body .single-guide-sidebar {
+	.single-guide.featured .single-guide-body .single-guide-sidebar {
 		order: 2;
 	}
 }

@@ -54,7 +54,11 @@ class EM_Guides_Template {
 			
 		) );
 		
-		include( EUGMAG_GUIDES_PATH . '/templates/single-guide.php' );
+		if ( ! empty( $args['featured'] ) ) {
+			include( EUGMAG_GUIDES_PATH . '/templates/single-guide-featured.php' );
+		} else {
+			include( EUGMAG_GUIDES_PATH . '/templates/single-guide-nonfeatured.php' );
+		}
 	}
 	
 	/**
