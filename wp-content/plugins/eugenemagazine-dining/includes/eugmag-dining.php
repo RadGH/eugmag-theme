@@ -99,7 +99,7 @@ function dining_guide_shortcode() {
 	}
 
 	// OUTPUT PAGINATED RESTAURANT LIST
-	echo '<div id="dining-guide-list-wrapper guide-list-wrapper">', paginated_dining_guide(), '</div>';
+	echo '<div id="dining-guide-list-wrapper" class="guide-list-wrapper">', paginated_dining_guide(), '</div>';
 	wp_reset_postdata();
 	?>
 	<script>

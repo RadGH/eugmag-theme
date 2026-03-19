@@ -104,7 +104,7 @@ function rg_recreation_guide_shortcode() {
 	}
 
 	// OUTPUT PAGINATED RECREATION LIST
-	echo '<div id="recreation-guide-list-wrapper guide-list-wrapper">', rg_paginated_recreation_guide(), '</div>';
+	echo '<div id="recreation-guide-list-wrapper" class="guide-list-wrapper">', rg_paginated_recreation_guide(), '</div>';
 	wp_reset_postdata();
 	?>
 	<script>

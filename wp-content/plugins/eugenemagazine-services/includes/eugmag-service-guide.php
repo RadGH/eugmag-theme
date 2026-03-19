@@ -104,7 +104,7 @@ function rg_service_guide_shortcode() {
 	}
 
 	// OUTPUT PAGINATED service LIST
-	echo '<div id="service-guide-list-wrapper guide-list-wrapper">', rg_paginated_service_guide(), '</div>';
+	echo '<div id="service-guide-list-wrapper" class="guide-list-wrapper">', rg_paginated_service_guide(), '</div>';
 	wp_reset_postdata();
 	?>
 	<script>

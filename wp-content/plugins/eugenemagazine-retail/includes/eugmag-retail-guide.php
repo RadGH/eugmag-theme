@@ -104,7 +104,7 @@ function rg_retail_guide_shortcode() {
 	}
 
 	// OUTPUT PAGINATED RETAILER LIST
-	echo '<div id="retail-guide-list-wrapper guide-list-wrapper">', rg_paginated_retail_guide(), '</div>';
+	echo '<div id="retail-guide-list-wrapper" class="guide-list-wrapper">', rg_paginated_retail_guide(), '</div>';
 	wp_reset_postdata();
 	?>
 	<script>
