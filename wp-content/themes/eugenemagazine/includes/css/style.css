@@ -2,7 +2,7 @@
 -- Fonts in use
 
 Front Page Panel Title:
-    font-family: "Cataneo", Helvetica, Arial, sans-serif;
+	font-family: "Bacasime Antique", Georgia, Times, "Times New Roman", serif;
     font-weight: 500;
     font-style: normal;
 
@@ -721,7 +721,7 @@ figure.wp-caption figcaption {
 }
 
 .cover-title h2 {
-	font-family: Cataneo, Helvetica, Arial, sans-serif;
+	font-family: "Bacasime Antique", Georgia, Times, "Times New Roman", serif;
 	font-weight: 500;
 	font-size: 64px;
 	line-height: 1;

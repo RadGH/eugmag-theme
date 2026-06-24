@@ -93,11 +93,12 @@ function ld_enqueue_theme_scripts() {
 
 	// Font files
 	ld_enqueue_style( '/includes/fonts/BookmanOldStyleStd.css', '1.0.0' );
-	ld_enqueue_style( '/includes/fonts/Cataneo.css', '1.0.0' );
+	// ld_enqueue_style( '/includes/fonts/Cataneo.css', '1.0.0' );
 	//ld_enqueue_style( '/includes/fonts/GillSansMTProMedium.css', '1.0.0' );
 	ld_enqueue_style( '/includes/fonts/MyriadProSemibold.css', '1.0.0' );
 	ld_enqueue_style( '/includes/fonts/HelveticaBlack.css', '1.0.0' );
 	wp_enqueue_style( 'droid-sans', '//fonts.googleapis.com/css?family=Droid+Sans:400,700', array() );
+	wp_enqueue_style( 'bacasime-antique', '//fonts.googleapis.com/css2?family=Bacasime+Antique&display=swap', array() );
 	wp_enqueue_style( 'gill-sans', '//use.typekit.net/srw8wxp.css?v=2', array() );
 
 	// Theme files
