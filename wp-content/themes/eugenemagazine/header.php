@@ -16,7 +16,10 @@
 
 <?php
 if ( is_front_page() ) {
-	echo do_shortcode( '[ad location="Before Header (full width)"]' );
+	// Before Header is temporarily disabled, and replaced with Top of Site ad position.
+	// See: plugin-addons/limelight-ads.php
+	echo do_shortcode( '[ad location="Top of Site (full width)"]' );
+	// echo do_shortcode( '[ad location="Before Header (full width)"]' );
 }
 ?>
 

@@ -20,7 +20,8 @@ acf_add_local_field_group(array(
 				'id' => '',
 			),
 			'choices' => array(
-				'Before Header (full width)' => '<strong>Before Header (full width)</strong> &ndash; 553&times;128px',
+				'Top of Site (full width)' => '<strong>Top of Site (full width)</strong> &ndash; 553&times;128px',
+				'Before Header (full width)' => '<strong>(Temporarily Disabled)</strong> Before Header (full width) &ndash; 553&times;128px',
 				'Content (full width)' => '<strong>Content (full width)</strong> &ndash; 1080&times;250px',
 				'Content (2/3 width)' => '<strong>Content (2/3 width)</strong> &ndash; 600&times;250px',
 				'Content (1/3 width)' => '<strong>Content (1/3 width)</strong> &ndash; 400&times;250px',

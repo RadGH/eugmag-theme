@@ -4,7 +4,10 @@ $cover = em_get_cover_header();
 
 ?>
 <?php
-echo do_shortcode('[ad location="Before Header (full width)"]');
+// Before Header is temporarily disabled, and replaced with Top of Site ad position.
+// See: plugin-addons/limelight-ads.php
+echo do_shortcode('[ad location="Top of Site (full width)"]');
+// echo do_shortcode('[ad location="Before Header (full width)"]');
 ?>
 <header id="header" class="cover-header cover-front <?php echo ($cover['iconcolor']=='light') ? 'light-photo' : 'dark-photo'; ?>">
 	<div class="cover-image <?php echo $cover['mobile_image'] ? "with-mobile-alt" : "no-mobile-alt"; ?>" <?php if ( $cover['image'] ) echo $cover['image']; ?>>

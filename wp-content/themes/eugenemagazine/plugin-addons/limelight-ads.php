@@ -2,13 +2,27 @@
 
 function ld_ads_get_locations() {
 	return array(
-		"Before Header (full width)" => array(
+		"Top of Site (full width)" => array(
 			"width" => 553,
 			"height" => 128,
 			"desktop" => true,
 			"mobile" => true, // was false on 4/5/2023
 			"desc" => ""
-		),		
+		),
+		
+		// Before Header is temporarily disabled, and replaced with Top of Site ad position. See:
+		// limelight-advertisements/fields/ad-location.js
+		// limelight-advertisements/fields/ad-locations.php
+		// /template-parts/cover-custom.php
+		// /header.php
+		"Before Header (full width)" => array(
+			"width" => 553,
+			"height" => 128,
+			"desktop" => true,
+			"mobile" => true, // was false on 4/5/2023
+			"desc" => "TEMPORARILY DISABLED and replaced with Top of Site position."
+		),
+		
 		"Content (full width)" => array(
 			"width" => 1080,
 			"height" => 250,
