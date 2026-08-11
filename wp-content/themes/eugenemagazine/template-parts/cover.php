@@ -6,7 +6,7 @@ $cover = em_get_cover_header();
 
 $classes = array();
 $classes[] = 'cover-header';
-$classes[] = $cover['is_front'] ? 'cover-front' : 'cover-notfront';
+$classes[] = isset($cover['is_front']) && $cover['is_front'] ? 'cover-front' : 'cover-notfront';
 $classes[] = $cover['image'] ? 'has-cover-photo' : 'no-cover-photo';
 $classes[] = ($cover['iconcolor'] == 'light') ? 'light-photo' : 'dark-photo';
 
