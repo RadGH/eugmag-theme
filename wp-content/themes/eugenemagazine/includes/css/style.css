@@ -83,6 +83,7 @@ iframe {
 	max-width: 100%
 }
 
+/*
 @media (max-width: 800px) {
 	iframe {
 		max-height: 360px
@@ -94,6 +95,7 @@ iframe {
 		max-height: 300px
 	}
 }
+*/
 
 /* ==========
 General Styles
