@@ -80,3 +80,15 @@ label.woocommerce-form__label:has(#ship-to-different-address-checkbox:checked) {
 		margin-top: 36px;
 	}
 }
+
+/* Reels banner ad, max height 200px */
+@media ( min-width: 1200px ) {
+	.ld-ad.ld-ad-location-top_of_site_full_width .ld-ad-inner {
+		width: 100%;
+	}
+
+	.ld-ad.ld-ad-location-top_of_site_full_width .ld-ad-inner img {
+		max-height: 200px;
+		margin: 0 auto;
+	}
+}

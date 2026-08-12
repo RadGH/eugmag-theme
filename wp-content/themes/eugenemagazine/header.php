@@ -15,10 +15,14 @@
     }(document, 'script', 'facebook-jssdk'));</script>
 
 <?php
+// Before Header is temporarily disabled, and replaced with Top of Site ad position.
+// See: plugin-addons/limelight-ads.php
+
+// Display Reels ad on all pages (not just front page)
+echo do_shortcode( '[ad location="Top of Site (full width)"]' );
+
+// Old banner ads before adding Reels banner:
 if ( is_front_page() ) {
-	// Before Header is temporarily disabled, and replaced with Top of Site ad position.
-	// See: plugin-addons/limelight-ads.php
-	echo do_shortcode( '[ad location="Top of Site (full width)"]' );
 	// echo do_shortcode( '[ad location="Before Header (full width)"]' );
 }
 ?>

@@ -6,7 +6,6 @@ $cover = em_get_cover_header();
 <?php
 // Before Header is temporarily disabled, and replaced with Top of Site ad position.
 // See: plugin-addons/limelight-ads.php
-echo do_shortcode('[ad location="Top of Site (full width)"]');
 // echo do_shortcode('[ad location="Before Header (full width)"]');
 ?>
 <header id="header" class="cover-header cover-front <?php echo ($cover['iconcolor']=='light') ? 'light-photo' : 'dark-photo'; ?>">
