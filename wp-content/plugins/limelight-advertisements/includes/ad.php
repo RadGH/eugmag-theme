@@ -8,14 +8,26 @@ function ld_ad_get_actual_markup( $ad_id, $location ) {
 
 	$type = get_field( 'ad-type', $ad_id );
 	$code = false;
+	
+	// Set to true to make all links external (open in new window, nofollow)
+	$force_external_links = false;
 
 	if ( $type == 'embed' ) {
 		$code = get_field( 'ad-embed-code', $ad_id );
 	}elseif ( $type == 'image' ){
 		$url = get_field( 'ad-url', $ad_id );
+		$is_internal = wp_is_internal_link( $url ) && ! $force_external_links;
 		$image = get_field( 'ad-image', $ad_id );
 		if ( $img_src = wp_get_attachment_image_src( $image, 'full' ) ) {
-			$code = sprintf( '<a href="%s" target="_blank" rel="external nofollow" class="ldad-external-link"><img src="%s" width="%s" height="%s" alt="%s" /></a>', esc_attr( $url ), esc_attr( $img_src[0] ), esc_attr( $img_src[1] ), esc_attr( $img_src[2] ), esc_attr( get_the_title( $ad_id ) ) );
+			$code = sprintf(
+				'<a href="%s" %s><img src="%s" width="%s" height="%s" alt="%s" /></a>',
+				esc_attr( $url ),
+				($is_internal ? 'class="ldad-internal-link"' : 'target="_blank" rel="external nofollow" class="ldad-external-link"'),
+				esc_attr( $img_src[0] ),
+				esc_attr( $img_src[1] ),
+				esc_attr( $img_src[2] ),
+				esc_attr( get_the_title( $ad_id ) )
+			);
 
 			if ( $location ) {
 				$ld_displayed_ads[] = $ad_id;
@@ -23,10 +35,19 @@ function ld_ad_get_actual_markup( $ad_id, $location ) {
 		}
 	}elseif ( $type == 'external_image' ){
 		$url = get_field( 'ad-url', $ad_id );
+		$is_internal = wp_is_internal_link( $url ) && ! $force_external_links;
 		if ( $img_src = get_field( 'ad-external-image', $ad_id ) ) {
 			if ( $ld_ad_locations = ld_ads_get_locations() ) {
 				if ( $ld_ad_locations[$location]['width'] && $ld_ad_locations[$location]['height'] ) {
-					$code = sprintf( '<a href="%s" target="_blank" rel="external nofollow" class="ldad-external-link"><img src="%s" width="%s" height="%s" alt="%s" /></a>', esc_attr( $url ), esc_attr( $img_src ), esc_attr( $ld_ad_locations[$location]['width'] ), esc_attr( $ld_ad_locations[$location]['height'] ), esc_attr( get_the_title( $ad_id ) ) );
+					$code = sprintf(
+						'<a href="%s" %s><img src="%s" width="%s" height="%s" alt="%s" /></a>',
+						esc_attr( $url ),
+						($is_internal ? 'class="ldad-internal-link"' : 'target="_blank" rel="external nofollow" class="ldad-external-link"'),
+						esc_attr( $img_src ),
+						esc_attr( $ld_ad_locations[$location]['width'] ),
+						esc_attr( $ld_ad_locations[$location]['height'] ),
+						esc_attr( get_the_title( $ad_id ) )
+					);
 					if ( $location ) {
 						$ld_displayed_ads[] = $ad_id;
 					}
