@@ -1,5 +1,5 @@
 /*
-Version 1.2.4
+Version 1.2.5
 */
 
 .overlay .readmore {
@@ -91,4 +91,15 @@ label.woocommerce-form__label:has(#ship-to-different-address-checkbox:checked) {
 		max-height: 200px;
 		margin: 0 auto;
 	}
+}
+
+/* Cover style: Boxed */
+.cover-style-boxed .cover-panel {
+	background: #000;
+	padding: 20px;
+}
+
+.cover-style-boxed .cover-panel a.button {
+	border: 1px solid;
+	border-radius: 3px;
 }

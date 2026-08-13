@@ -5,6 +5,8 @@ $cover = array(
 		'image' => get_field( 'cover-logo' ),
 		'align' => get_field( 'logo-position' ),
 	),
+	
+	'cover_style' => get_field( 'cover_style' ) ?: 'default',
 
 	'image' => get_field( 'cover-image' ),
 	'mobile_image' => false,
@@ -31,6 +33,17 @@ $cover = array(
 
 	'iconcolor' => get_field( 'cover-icon-color' )
 );
+
+// Validate cover style
+if ( $cover['cover_style'] != 'boxed' ) {
+	$cover['cover_style'] = 'default';
+}
+
+// If using cover style boxed, also make the button white
+if ( $cover['cover_style'] === 'boxed' ) {
+	$cover['button']['background'] = '#ffffff';
+	$cover['button']['color'] = '#000000';
+}
 
 // Convert cover image into an inline CSS background property
 if ( $cover['image'] ) {
@@ -64,7 +77,7 @@ if ( !empty($cover['button']['data'][0]['url']) ) {
 }
 
 ?>
-<header id="header" class="cover-header cover-front <?php echo ($cover['iconcolor']=='light') ? 'light-photo' : 'dark-photo'; ?>">
+<header id="header" class="cover-header cover-front <?php echo ($cover['iconcolor']=='light') ? 'light-photo' : 'dark-photo'; ?> cover-style-<?php echo esc_attr($cover['cover_style']); ?>">
 	<div class="cover-image <?php echo $cover['mobile_image'] ? "with-mobile-alt" : "no-mobile-alt"; ?>" <?php if ( $cover['image'] ) echo $cover['image']; ?>>
 		
 		<?php // if ( $cover['mobile_image'] ) echo '<div class="cover-image-mobile-alt" '. $cover['mobile_image'].'>'; ?>
