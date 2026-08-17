@@ -1,5 +1,5 @@
 /*
-Version 1.2.5
+Version 1.2.6
 */
 
 .overlay .readmore {
@@ -102,4 +102,11 @@ label.woocommerce-form__label:has(#ship-to-different-address-checkbox:checked) {
 .cover-style-boxed .cover-panel a.button {
 	border: 1px solid;
 	border-radius: 3px;
+}
+
+/* ZM Reels plugin: Top padding when X button would overlap vimeos 3-dot menu */
+@media ( min-width: 350px ) and ( max-width: 620px ) {
+	.zm-reel__stage {
+		padding-top: 80px;
+	}
 }
