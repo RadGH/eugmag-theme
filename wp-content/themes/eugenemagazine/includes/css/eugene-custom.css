@@ -110,3 +110,9 @@ label.woocommerce-form__label:has(#ship-to-different-address-checkbox:checked) {
 		padding-top: 80px;
 	}
 }
+
+/* 50% transparent overlays */
+.cover-style-boxed .cover-panel,
+.overlay {
+	background: rgba(0, 0, 0, .5);
+}
