@@ -1,20 +1,22 @@
 <?php
 /*
 Plugin Name: Eugene Magazine Guides
-Version:     1.4b
-Description: Extends various guides (Recreation, Restaurants, Services, Retail) to have a more extensive template.
-Author:      Radley Sustaire
-Author URI:  https://radleysustaire.com/
+Version:     2.0
+Description: Adds various guides (Recreation, Restaurants, Services, Retail)
+Author: Rosie Leung and Radley Sustaire
+Author URI: https://zingmap.com
 */
 
 defined( 'ABSPATH' ) || exit;
 
 define( 'EUGMAG_GUIDES_URL', untrailingslashit( plugin_dir_url( __FILE__ ) ) );
-define( 'EUGMAG_GUIDES_PATH', dirname( __FILE__ ) );
-define( 'EUGMAG_GUIDES_VERSION', '1.4b' );
+define( 'EUGMAG_GUIDES_PATH', __DIR__ );
+define( 'EUGMAG_GUIDES_VERSION', '2.0' );
 
 add_action( 'plugins_loaded', 'initialize_eugmag_guides_plugin' );
 
 function initialize_eugmag_guides_plugin() {
 	include( EUGMAG_GUIDES_PATH . '/includes/template.php' );
+	include( EUGMAG_GUIDES_PATH . '/includes/register-post-types-and-taxonomies.php' );
+	include( EUGMAG_GUIDES_PATH . '/includes/guides.php' );
 }
