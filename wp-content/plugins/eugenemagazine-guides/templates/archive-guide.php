@@ -33,15 +33,23 @@ $search_field = match ( $post_type ) {
 	'retailer' => 'retail_description',
 	'service' => 'service_description',
 };
-$query        = function( $featured ) use ( $post_type, $page_number, $taxonomy, $search_field, $only_show_spotlights ) {
+$query        = function( $is_featured, $previous_query = null, $override_page_number = null ) use ( $post_type, $page_number, $taxonomy, $search_field, $only_show_spotlights ) {
+	
+	$posts_per_page = $is_featured ? ( $only_show_spotlights ? - 1 : 12 ) : 12;
+	
+	// If any featured posts were displayed, hide the regular posts
+	if ( $previous_query !== null ) {
+		if ( count( $previous_query->posts ) >= 1 ) {
+			return new WP_Query();
+		}
+	}
+	
 	$args = array(
 		'post_type'      => $post_type,
-		'posts_per_page' => $featured
-			? ( $only_show_spotlights ? - 1 : 9 )
-			: 12,
-		'paged'          => (int) $page_number,
+		'posts_per_page' => $posts_per_page,
+		'paged'          => (int) ( $override_page_number === null ? $page_number : $override_page_number ),
 		'meta_key'       => 'featured',
-		'meta_value'     => $featured ? '1' : '0',
+		'meta_value'     => $is_featured ? '1' : '0',
 		'orderby'        => array(
 			'title' => 'ASC',
 		),
@@ -76,11 +84,14 @@ $query        = function( $featured ) use ( $post_type, $page_number, $taxonomy,
 // fetch featured posts
 $featured_posts = $query( true );
 
+// Fetch the first page of featured posts to use for pagination
+$featured_posts_pagination = $query( true, null, 1 );
+
 // fetch regular posts (if only showing spotlights, don't show regular posts at all)
-$regular_posts = $only_show_spotlights ? null : $query( false );
+$regular_posts = $only_show_spotlights ? null : $query( false, $featured_posts, ($page_number - $featured_posts_pagination->max_num_pages) );
 
 // work out the pagination: if only showing spotlights, there's only one page; otherwise need enough pages to accomodate all featured and all regular posts
-$max_pages = $only_show_spotlights ? 1 : max( $featured_posts->max_num_pages, $regular_posts->max_num_pages );
+$max_pages = $only_show_spotlights ? 1 : $featured_posts_pagination->max_num_pages + $regular_posts->max_num_pages;
 
 get_header();
 ?>
