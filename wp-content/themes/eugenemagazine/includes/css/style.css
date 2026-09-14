@@ -1303,6 +1303,36 @@ body.mobile_nav_open #mobile-button .bar {
 	margin: 12px 0 0 -28px;
 }
 
+/* guides button */
+.menu-button-guides {
+	height: 94px;
+}
+
+.menu-button-guides a {
+	position: absolute;
+	width: 100px;
+	height: 80px;
+	display: block;
+	background: no-repeat top center url("../images/icon-guides.png");
+	background-size: 40px auto;
+	margin: 12px 0 0 -28px;
+}
+
+/* donate button */
+.menu-button-donate {
+	height: 80px;
+}
+
+.menu-button-donate a {
+	position: absolute;
+	width: 100px;
+	height: 80px;
+	display: block;
+	background: no-repeat top center url("../images/icon-donate.png");
+	background-size: 40px auto;
+	margin: 12px 0 0 -28px;
+}
+
 /* subscribe button */
 .menu-button-subscribe {
 	height: 80px;

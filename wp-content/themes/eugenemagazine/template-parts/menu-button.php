@@ -58,8 +58,22 @@
 	</div>
 	
 	<div class="menu-button menu-button-newsletter">
-		<a href="/newsletter">
+		<a href="/newsletter/">
 			<div class="menu-button-text">NEWSLETTER</div>
 		</a>
 	</div>
+	
+	<div class="menu-button menu-button-guides">
+		<a href="/guides/">
+			<div class="menu-button-text">ONLINE<br>GUIDES</div>
+		</a>
+	</div>
+	
+	<?php /* ?>
+	<div class="menu-button menu-button-donate">
+		<a href="/donate/">
+			<div class="menu-button-text">DONATE</div>
+		</a>
+	</div>
+	<?php */ ?>
 </div>
