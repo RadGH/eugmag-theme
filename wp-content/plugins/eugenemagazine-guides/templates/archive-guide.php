@@ -4,7 +4,7 @@
 
 $template             = get_page_template_slug();
 $permalink            = get_permalink();
-$only_show_spotlights = (bool) $_GET['spotlights'];
+$only_show_spotlights = ! empty( $_GET['spotlights'] );
 
 $post_type = match ( $template ) {
 	'page-dining-guide.php' => 'restaurant',
@@ -33,29 +33,29 @@ $search_field = match ( $post_type ) {
 	'retailer' => 'retail_description',
 	'service' => 'service_description',
 };
-$query        = function( $is_featured, $previous_query = null, $override_page_number = null ) use ( $post_type, $page_number, $taxonomy, $search_field, $only_show_spotlights ) {
-	
-	$posts_per_page = $is_featured ? ( $only_show_spotlights ? - 1 : 12 ) : 12;
-	
-	// If any featured posts were displayed, hide the regular posts
-	if ( $previous_query !== null ) {
-		if ( count( $previous_query->posts ) >= 1 ) {
-			return new WP_Query();
-		}
-	}
-	
+$posts_per_page = 12;
+
+// A single query returns featured guides first, then regular guides, so each page is filled with up to
+// $posts_per_page guides regardless of the mix. When only showing spotlights, return every featured guide.
+$query = function() use ( $post_type, $page_number, $posts_per_page, $taxonomy, $search_field, $only_show_spotlights ) {
+
 	$args = array(
 		'post_type'      => $post_type,
-		'posts_per_page' => $posts_per_page,
-		'paged'          => (int) ( $override_page_number === null ? $page_number : $override_page_number ),
-		'meta_key'       => 'featured',
-		'meta_value'     => $is_featured ? '1' : '0',
+		'posts_per_page' => $only_show_spotlights ? - 1 : $posts_per_page,
+		'paged'          => $only_show_spotlights ? 1 : $page_number,
+		'meta_query'     => array(
+			// "featured" is '1' when featured and '0' (or '' when unfeatured by the scheduler) otherwise, so sorting DESC puts featured first
+			'featured_clause' => $only_show_spotlights
+				? array( 'key' => 'featured', 'value' => '1' )
+				: array( 'key' => 'featured', 'compare' => 'EXISTS' ),
+		),
 		'orderby'        => array(
-			'title' => 'ASC',
+			'featured_clause' => 'DESC',
+			'title'           => 'ASC',
 		),
 	);
 
-	if ( $_REQUEST['term'] ) {
+	if ( ! empty( $_REQUEST['term'] ) ) {
 		$args['tax_query'] = array(
 			array(
 				'taxonomy' => $taxonomy,
@@ -81,17 +81,21 @@ $query        = function( $is_featured, $previous_query = null, $override_page_n
 	return new WP_Query( $args );
 };
 
-// fetch featured posts
-$featured_posts = $query( true );
+$guides_query = $query();
 
-// Fetch the first page of featured posts to use for pagination
-$featured_posts_pagination = $query( true, null, 1 );
+// split this page's results into featured and regular guides, which are displayed differently
+$featured_posts = array();
+$regular_posts  = array();
 
-// fetch regular posts (if only showing spotlights, don't show regular posts at all)
-$regular_posts = $only_show_spotlights ? null : $query( false, $featured_posts, ($page_number - $featured_posts_pagination->max_num_pages) );
+foreach ( $guides_query->posts as $guide ) {
+	if ( get_post_meta( $guide->ID, 'featured', true ) ) {
+		$featured_posts[] = $guide;
+	} else {
+		$regular_posts[] = $guide;
+	}
+}
 
-// work out the pagination: if only showing spotlights, there's only one page; otherwise need enough pages to accomodate all featured and all regular posts
-$max_pages = $only_show_spotlights ? 1 : $featured_posts_pagination->max_num_pages + $regular_posts->max_num_pages;
+$max_pages = $only_show_spotlights ? 1 : (int) $guides_query->max_num_pages;
 
 get_header();
 ?>
@@ -125,7 +129,7 @@ get_header();
 									</div>
 								</div>
 								<?php
-								if ( $featured_posts->have_posts() ): ?>
+								if ( $featured_posts ): ?>
 									<div class="guide-spotlights-header">
 										<h2><?php echo $spotlights_heading ?></h2>
 										<?php if ( ! $only_show_spotlights ): ?>
@@ -144,8 +148,8 @@ get_header();
 
 									<ul class="guide-list -featured">
 										<?php
-										while ( $featured_posts->have_posts() ) :
-											$featured_posts->the_post();
+										foreach ( $featured_posts as $post ) :
+											setup_postdata( $post );
 											$img             = get_field( 'spotlight-card-bg' ) ?: get_field( 'cover-image' );
 											$img_src         = $img ? wp_get_attachment_image_url( $img, 'medium' ) : false;
 											$tagline         = get_field( $post_type . '_tagline' ) ?: get_field( $post_type . '_description' );
@@ -163,17 +167,17 @@ get_header();
 												<a class="guide-more" href="<?php the_permalink() ?>">View profile &rarr;</a>
 											</li>
 										<?php
-										endwhile;
+										endforeach;
 										wp_reset_postdata();
 										?>
 									</ul>
 								<?php endif; ?>
 								<?php
-								if ( $regular_posts && $regular_posts->have_posts() ): ?>
+								if ( $regular_posts ): ?>
 									<ul class="guide-list -regular">
 										<?php
-										while ( $regular_posts->have_posts() ) :
-											$regular_posts->the_post();
+										foreach ( $regular_posts as $post ) :
+											setup_postdata( $post );
 											$tagline = get_field( $post_type . '_tagline' ) ?: get_field( $post_type . '_description' );
 											?>
 											<li class="guide-item">
@@ -183,7 +187,7 @@ get_header();
 												</div>
 											</li>
 										<?php
-										endwhile;
+										endforeach;
 										wp_reset_postdata();
 										?>
 									</ul>
