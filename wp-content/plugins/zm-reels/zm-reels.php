@@ -2,7 +2,7 @@
 /**
  * Plugin Name: ZM: Reels
  * Description: A "Reels" post type (Facebook Reels / YouTube Shorts / TikTok style) with a full-screen video viewer at /reels/ and /reels/{slug}/. Videos can be uploaded or pulled from YouTube/Vimeo links, with likes, threaded comments, business info + action links, and Cloudflare Turnstile. Uses ACF for custom fields and the classic editor (no Gutenberg).
- * Version: 1.3.2
+ * Version: 1.3.3
  * Author: RadGH
  * License: GPL-2.0-or-later
  * Text Domain: zm-reels
@@ -13,7 +13,7 @@
 // Prevent direct access.
 defined( 'ABSPATH' ) || exit;
 
-define( 'ZM_REELS_VERSION', '1.3.2' );
+define( 'ZM_REELS_VERSION', '1.3.3' );
 define( 'ZM_REELS_FILE', __FILE__ );
 
 require_once plugin_dir_path( __FILE__ ) . 'includes/settings.php';

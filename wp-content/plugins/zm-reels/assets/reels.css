@@ -285,7 +285,6 @@ html, body.zm-reels-body {
 
 /* Phone + address (where the business type used to sit, above the action buttons). */
 .zm-reel__contact { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
-.zm-reel__contact-item { display: flex; flex-direction: row; gap: 6px; align-items: center; }
 .zm-reel__phone,
 .zm-reel__address {
 	color: #cfcfd4;
@@ -298,8 +297,23 @@ html, body.zm-reels-body {
 }
 .zm-reel__phone:hover,
 .zm-reel__address:hover { color: #fff; text-decoration: underline; }
-/*.zm-reel__phone::before { content: "\260E"; color: #9aa0a6; }*/
-/*.zm-reel__address::before { content: "\1F4CD"; }*/
+
+.zm-reel__phone::before,
+.zm-reel__address::before {
+	content: '';
+	display: inline-block;
+	width: 20px;
+	height: 1lh;
+	background: center no-repeat;
+	background-size: cover;
+}
+
+.zm-reel__phone::before {
+	background-image: url(phone.svg);
+}
+.zm-reel__address::before {
+	background-image: url(map-pin.svg);
+}
 
 .zm-reel__actions { display: flex; flex-wrap: wrap; gap: 8px; }
 .zm-reel__action {

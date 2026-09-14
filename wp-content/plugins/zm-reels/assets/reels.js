@@ -205,15 +205,11 @@
 			h += '<div class="zm-reel__contact">';
 			if ( reel.businessPhone ) {
 				var tel = reel.businessPhone.replace( /[^\d+]/g, '' );
-				h += '<div class="zm-reel__contact-item zm-reel_item__phone">';
-				h += '<span class="zm-reel__label">Phone:</span> <a class="zm-reel__phone" href="tel:' + escapeHtml( tel ) + '">' + escapeHtml( reel.businessPhone ) + '</a>';
-				h += '</div>';
+				h += '<a class="zm-reel__phone" href="tel:' + escapeHtml( tel ) + '">' + escapeHtml( reel.businessPhone ) + '</a>';
 			}
 			if ( reel.businessAddress ) {
 				var mapUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent( reel.businessAddress );
-				h += '<div class="zm-reel__contact-item zm-reel_item__address">';
-				h += '<span class="zm-reel__label">Address:</span> <a class="zm-reel__address" href="' + escapeHtml( mapUrl ) + '" target="_blank" rel="noopener noreferrer external">' + escapeHtml( reel.businessAddress ) + '</a>';
-				h += '</div>';
+				h += '<a class="zm-reel__address" href="' + escapeHtml( mapUrl ) + '" target="_blank" rel="noopener noreferrer external">' + escapeHtml( reel.businessAddress ) + '</a>';
 			}
 			h += '</div>';
 		}
