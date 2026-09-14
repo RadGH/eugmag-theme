@@ -2,7 +2,7 @@
 /**
  * Plugin Name: ZM: Reels
  * Description: A "Reels" post type (Facebook Reels / YouTube Shorts / TikTok style) with a full-screen video viewer at /reels/ and /reels/{slug}/. Videos can be uploaded or pulled from YouTube/Vimeo links, with likes, threaded comments, business info + action links, and Cloudflare Turnstile. Uses ACF for custom fields and the classic editor (no Gutenberg).
- * Version: 1.3.1
+ * Version: 1.3.2
  * Author: RadGH
  * License: GPL-2.0-or-later
  * Text Domain: zm-reels
@@ -13,7 +13,7 @@
 // Prevent direct access.
 defined( 'ABSPATH' ) || exit;
 
-define( 'ZM_REELS_VERSION', '1.3.0' );
+define( 'ZM_REELS_VERSION', '1.3.2' );
 define( 'ZM_REELS_FILE', __FILE__ );
 
 require_once plugin_dir_path( __FILE__ ) . 'includes/settings.php';
@@ -177,7 +177,21 @@ function zm_reels_register_fields(): void {
 					'label'        => __( 'Business URL', 'zm-reels' ),
 					'name'         => 'business_url',
 					'type'         => 'url',
-					'instructions' => __( 'Optional. If set, the Business Name links to this URL.', 'zm-reels' ),
+					'instructions' => __( 'Optional. If set, the Business Name links to this URL. When the Business Name matches the reel title, the title itself links here instead.', 'zm-reels' ),
+				),
+				array(
+					'key'          => 'field_zm_reel_business_phone',
+					'label'        => __( 'Business Phone', 'zm-reels' ),
+					'name'         => 'business_phone',
+					'type'         => 'text',
+					'instructions' => __( 'Optional. Shown in the sidebar as a tap-to-call link.', 'zm-reels' ),
+				),
+				array(
+					'key'          => 'field_zm_reel_business_address',
+					'label'        => __( 'Business Address', 'zm-reels' ),
+					'name'         => 'business_address',
+					'type'         => 'text',
+					'instructions' => __( 'Optional. Shown in the sidebar as a link to Google Maps.', 'zm-reels' ),
 				),
 				array(
 					'key'          => 'field_zm_reel_actions',
@@ -382,6 +396,8 @@ function zm_reels_get_data(): array {
 			'businessName' => (string) get_field( 'business_name' ),
 			'businessUrl'  => (string) get_field( 'business_url' ),
 			'businessUrlExternal' => zm_reels_is_external_url( (string) get_field( 'business_url' ) ),
+			'businessPhone'    => (string) get_field( 'business_phone' ),
+			'businessAddress'  => (string) get_field( 'business_address' ),
 			'actions'      => $actions,
 			'likeCount'    => $likes_on ? zm_reels_like_count( (int) $post->ID ) : 0,
 			'liked'        => $likes_on ? zm_reels_user_liked( (int) $post->ID ) : false,

@@ -271,6 +271,10 @@ html, body.zm-reels-body {
 	.zm-scroll-hint { display: none !important; }
 }
 
+/* Title-as-business-link (shown when the reel is named after the business). */
+.zm-reel__title-link { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.zm-reel__title-link:hover { opacity: .85; }
+
 /* --- Business info + action links --- */
 .zm-reel__business { margin: 0 0 18px; }
 .zm-reel__biz-line { font-size: 15px; margin-bottom: 10px; }
@@ -278,6 +282,25 @@ html, body.zm-reels-body {
 .zm-reel__biz-name { color: #fff; font-weight: 700; }
 .zm-reel__biz-link { color: #fff; text-decoration: underline; }
 .zm-reel__biz-link:hover { opacity: .85; }
+
+/* Phone + address (where the business type used to sit, above the action buttons). */
+.zm-reel__contact { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
+.zm-reel__contact-item { display: flex; flex-direction: row; gap: 6px; align-items: center; }
+.zm-reel__phone,
+.zm-reel__address {
+	color: #cfcfd4;
+	font-size: 14px;
+	line-height: 1.4;
+	text-decoration: none;
+	display: inline-flex;
+	align-items: flex-start;
+	gap: 7px;
+}
+.zm-reel__phone:hover,
+.zm-reel__address:hover { color: #fff; text-decoration: underline; }
+/*.zm-reel__phone::before { content: "\260E"; color: #9aa0a6; }*/
+/*.zm-reel__address::before { content: "\1F4CD"; }*/
+
 .zm-reel__actions { display: flex; flex-wrap: wrap; gap: 8px; }
 .zm-reel__action {
 	display: inline-block;

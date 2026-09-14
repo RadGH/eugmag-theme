@@ -164,10 +164,25 @@
 
 	// ---- sidebar (title, meta, business, description) ------------
 
+	// True when the Business Name is effectively the same as the reel title.
+	// In that case we skip the redundant "Type: Name" line and instead link
+	// the reel title itself to the Business URL (see sidebarHtml).
+	function businessIsTitle( reel ) {
+		return !! reel.businessName && !! reel.title &&
+			reel.businessName.trim().toLowerCase() === reel.title.trim().toLowerCase();
+	}
+
+	// Attributes for a Business URL link (external links open in a new tab).
+	function businessUrlAttrs( reel ) {
+		return reel.businessUrlExternal ? ' target="_blank" rel="nofollow noopener noreferrer external"' : '';
+	}
+
 	function businessHtml( reel ) {
-		var hasBiz = reel.businessType || reel.businessName;
+		// Suppress the "Type: Name" line when the name just repeats the title.
+		var hasBiz = ( reel.businessType || reel.businessName ) && ! businessIsTitle( reel );
+		var hasContact = reel.businessPhone || reel.businessAddress;
 		var hasActions = reel.actions && reel.actions.length;
-		if ( ! hasBiz && ! hasActions ) { return ''; }
+		if ( ! hasBiz && ! hasContact && ! hasActions ) { return ''; }
 
 		var h = '<div class="zm-reel__business">';
 		if ( hasBiz ) {
@@ -177,14 +192,32 @@
 			}
 			if ( reel.businessName ) {
 				if ( reel.businessUrl ) {
-					var bizAttrs = reel.businessUrlExternal ? ' target="_blank" rel="nofollow noopener noreferrer external"' : '';
-					h += '<a class="zm-reel__biz-name zm-reel__biz-link" href="' + escapeHtml( reel.businessUrl ) + '"' + bizAttrs + '>' + escapeHtml( reel.businessName ) + '</a>';
+					h += '<a class="zm-reel__biz-name zm-reel__biz-link" href="' + escapeHtml( reel.businessUrl ) + '"' + businessUrlAttrs( reel ) + '>' + escapeHtml( reel.businessName ) + '</a>';
 				} else {
 					h += '<span class="zm-reel__biz-name">' + escapeHtml( reel.businessName ) + '</span>';
 				}
 			}
 			h += '</div>';
 		}
+
+		// Phone (tap-to-call) + address (Google Maps), where the business type used to sit.
+		if ( hasContact ) {
+			h += '<div class="zm-reel__contact">';
+			if ( reel.businessPhone ) {
+				var tel = reel.businessPhone.replace( /[^\d+]/g, '' );
+				h += '<div class="zm-reel__contact-item zm-reel_item__phone">';
+				h += '<span class="zm-reel__label">Phone:</span> <a class="zm-reel__phone" href="tel:' + escapeHtml( tel ) + '">' + escapeHtml( reel.businessPhone ) + '</a>';
+				h += '</div>';
+			}
+			if ( reel.businessAddress ) {
+				var mapUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent( reel.businessAddress );
+				h += '<div class="zm-reel__contact-item zm-reel_item__address">';
+				h += '<span class="zm-reel__label">Address:</span> <a class="zm-reel__address" href="' + escapeHtml( mapUrl ) + '" target="_blank" rel="noopener noreferrer external">' + escapeHtml( reel.businessAddress ) + '</a>';
+				h += '</div>';
+			}
+			h += '</div>';
+		}
+
 		if ( hasActions ) {
 			h += '<div class="zm-reel__actions">';
 			reel.actions.forEach( function ( a ) {
@@ -198,7 +231,13 @@
 	}
 
 	function sidebarHtml( reel ) {
-		var html = '<h1 class="zm-reel__title">' + escapeHtml( reel.title ) + '</h1>';
+		// When the reel is named after the business, link the title to the Business URL
+		// instead of showing a redundant "Type: Name" row below it.
+		var titleInner = escapeHtml( reel.title );
+		if ( businessIsTitle( reel ) && reel.businessUrl ) {
+			titleInner = '<a class="zm-reel__title-link" href="' + escapeHtml( reel.businessUrl ) + '"' + businessUrlAttrs( reel ) + '>' + titleInner + '</a>';
+		}
+		var html = '<h1 class="zm-reel__title">' + titleInner + '</h1>';
 		var meta = '';
 		if ( reel.category ) { meta += '<span class="zm-reel__cat">' + escapeHtml( reel.category ) + '</span>'; }
 		if ( reel.date ) { meta += '<span class="zm-reel__date">' + escapeHtml( reel.date ) + '</span>'; }

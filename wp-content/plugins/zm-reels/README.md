@@ -24,7 +24,10 @@ Both load `assets/reels.js`, which renders a full-screen viewer (not a real moda
 | Video URL | ACF `reel_video_url` | Optional. A **YouTube**, **Vimeo**, or direct (.mp4) URL. If set, used instead of the uploaded file. |
 | Poster | Featured Image | Optional. Used as the video poster / fallback image. |
 | Business Type | ACF `business_type` | e.g. `Restaurant`, `Magazine`. Shown as "Type: Name". |
-| Business Name | ACF `business_name` | e.g. `City Life Monthly`. |
+| Business Name | ACF `business_name` | e.g. `City Life Monthly`. If it matches the reel title, the "Type: Name" row is hidden and the title links to Business URL instead. |
+| Business URL | ACF `business_url` | Optional. If set, the Business Name becomes a link (white, underlined) — or the title itself when the name matches the title. |
+| Business Phone | ACF `business_phone` | Optional. Shown in the sidebar as a `tel:` tap-to-call link. |
+| Business Address | ACF `business_address` | Optional. Shown in the sidebar as a link to Google Maps. |
 | Actions | ACF `reel_actions` (repeater) | Text + URL rows, shown as buttons (e.g. "Visit our website"). |
 
 **Video source:** each reel plays either an uploaded/direct file (in a `<video>` element with a
@@ -36,9 +39,17 @@ file.
 ### Business info & action links
 
 Shown in the sidebar **below the category/date and above the description**: `Business Type: Business
-Name`, followed by the action buttons. Action URLs that point to another domain automatically open in
-a new tab with `target="_blank" rel="nofollow noopener noreferrer external"`; internal links open
-normally.
+Name`, then the **phone** and **address**, followed by the action buttons. If **Business URL** is set,
+the Business Name is a link (stays white, with an underline).
+
+**When the Business Name matches the reel title** (case-insensitive), the redundant `Type: Name` row
+is omitted and the **reel title itself** links to the Business URL instead — handy when a reel is just
+named after the business.
+
+The **phone** renders as a `tel:` link (tap-to-call on mobile) and the **address** as a link to a
+Google Maps search for that address (opens in a new tab). Action links and the business link that
+point to another domain automatically open in a new tab with `target="_blank" rel="nofollow noopener
+noreferrer external"`; internal links open normally.
 
 ## Likes, comments & settings
 
@@ -57,8 +68,16 @@ once (clicking again un-likes).
 
 **Comments & replies** use native WordPress comments, so they appear in the normal **Comments** admin
 screen and obey your **Settings → Discussion** rules (moderation, "must have a previously approved
-comment", etc.). Guest comments record the author IP and run through `wp_new_comment()` — meaning any
-anti-spam plugin hooked to `preprocess_comment` applies. Logged-in comments use the default flow.
+comment", etc.). The guest form has **Name + Email** fields (Email is required when *Settings →
+Discussion → Comment author must fill out name and email* is on). Guest comments record the author IP
+and run through `wp_new_comment()` — meaning any anti-spam plugin hooked to `preprocess_comment`
+applies. Logged-in comments use the default flow.
+
+**Built-in honeypot:** the guest form includes a hidden "Website" (URL) field that real visitors
+never see. The viewer never sends a URL, so any submission carrying a `website`/`url` value can only
+be a bot — it's silently recorded as **spam** (author IP kept) and the bot receives the same neutral
+"awaiting moderation" reply as a real comment, so it can't detect the trap. This needs no
+configuration and won't affect genuine visitors.
 
 **Cloudflare Turnstile:** when both keys are filled in, **guests** must pass a Turnstile check before
 a like or comment is accepted (verified server-side against Cloudflare). Logged-in users are not
@@ -101,7 +120,8 @@ mobile.
   AJAX), `comments.php` (AJAX), `turnstile.php` (verify).
 - The ordered reel list is built in `zm_reels_get_data()` and handed to JS via `wp_localize_script`
   as `window.ZM_REELS` (`{ reels, start, home, base, social }`). Per-reel it includes
-  `businessType`, `businessName`, `actions`, `likeCount`, `liked`, `commentCount`.
+  `businessType`, `businessName`, `businessUrl`, `businessPhone`, `businessAddress`, `actions`,
+  `likeCount`, `liked`, `commentCount`.
 - The viewer template is `templates/reels-viewer.php` (loaded via `template_include`) — a minimal
   full-screen page with `wp_head()` / `wp_footer()` but no theme header/footer.
 - Likes/comments post to `admin-ajax.php` (actions `zm_reels_like`, `zm_reels_get_comments`,
