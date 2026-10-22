@@ -1,5 +1,5 @@
 /*
-Version 1.2.8
+Version 1.2.9
 */
 
 .overlay .readmore {
@@ -88,7 +88,6 @@ label.woocommerce-form__label:has(#ship-to-different-address-checkbox:checked) {
 	}
 
 	.ld-ad.ld-ad-location-top_of_site_full_width .ld-ad-inner img {
-		max-height: 200px;
 		margin: 0 auto;
 	}
 }
