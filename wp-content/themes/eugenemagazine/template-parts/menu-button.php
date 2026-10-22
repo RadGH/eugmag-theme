@@ -65,15 +65,13 @@
 	
 	<div class="menu-button menu-button-guides">
 		<a href="/guides/">
-			<div class="menu-button-text">ONLINE<br>GUIDES</div>
+			<div class="menu-button-text">DIGITAL<br>GUIDES</div>
 		</a>
 	</div>
 	
-	<?php /* ?>
 	<div class="menu-button menu-button-donate">
-		<a href="/donate/">
+		<a href="/product/donation/">
 			<div class="menu-button-text">DONATE</div>
 		</a>
 	</div>
-	<?php */ ?>
 </div>
