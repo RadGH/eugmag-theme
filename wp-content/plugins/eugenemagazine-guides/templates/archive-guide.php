@@ -155,10 +155,7 @@ get_header();
 											$tagline         = get_field( $post_type . '_tagline' ) ?: get_field( $post_type . '_description' );
 											$tagline_cropped = wp_trim_words( wp_strip_all_tags( $tagline ), 75, '…' );
 											?>
-											<li class="guide-item">
-												<?php if ( $img_src ) : ?>
-													<img src="<?php echo esc_url( $img_src ); ?>" alt="" class="guide-image">
-												<?php endif; ?>
+											<li class="guide-item"<?php if ( $img_src ) : ?> style="background-image: url('<?php echo esc_url( $img_src ); ?>');"<?php endif; ?>>
 												<div class="guide-featured">Featured</div>
 												<div class="guide-title"><a href="<?php the_permalink() ?>"><?php the_title() ?></a></div>
 												<div class="guide-desc">

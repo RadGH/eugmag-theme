@@ -286,6 +286,10 @@ a.guide_instagram {
 
 .guide-list.-featured li {
 	aspect-ratio: 1;
+	background-color: #000;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 	color: #fff;
 	display: flex;
 	flex-direction: column;
@@ -299,22 +303,15 @@ a.guide_instagram {
 	z-index: 1;
 }
 
-.guide-list.-featured li::before,
-.guide-list.-featured li::after,
-.guide-list.-featured img {
+.guide-list.-featured li::after {
 	content: '';
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: #000;
-	object-fit: cover;
-	z-index: 0;
-}
-
-.guide-list.-featured li::after {
 	background: linear-gradient(transparent 30%, black 70%);
+	z-index: 0;
 }
 
 .guide-list.-featured .guide-featured {
